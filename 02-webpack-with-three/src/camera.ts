@@ -3,6 +3,6 @@ import { Size } from "./size";
 
 export const getCamera = (size: Size) => {
   const camera = new PerspectiveCamera(55, size.aspect);
-  camera.position.z = 3;
+  camera.position.z = 8;
   return camera;
 };
