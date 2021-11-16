@@ -13,7 +13,7 @@ const getCanvas = () => {
   return canvas;
 };
 
-const getRenderer = (size: Size) => {
+export const getRenderer = (size: Size) => {
   const canvas = getCanvas();
   const renderer = new WebGLRenderer({ canvas });
   renderer.setSize(size.width, size.height);
