@@ -28,7 +28,7 @@ const camera = new THREE.PerspectiveCamera(50, renderSize.getAspect());
 // Allows us to see the box from the front.
 camera.position.z = 3;
 
-const scene = THREE.Scene();
+const scene = new THREE.Scene();
 scene.add(box);
 scene.add(camera);
 
