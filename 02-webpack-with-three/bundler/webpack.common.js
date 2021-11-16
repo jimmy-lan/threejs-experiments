@@ -13,7 +13,12 @@ module.exports = {
   devtool: "source-map",
   plugins: [
     new CopyWebpackPlugin({
-      patterns: [{ from: path.resolve(__dirname, "../public/assets") }],
+      patterns: [
+        {
+          from: path.resolve(__dirname, "../public"),
+          globOptions: { ignore: "**/index.html" },
+        },
+      ],
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "../public/index.html"),
