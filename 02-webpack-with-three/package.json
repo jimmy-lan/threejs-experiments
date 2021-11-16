@@ -6,6 +6,14 @@
         "dev": "webpack serve --config ./bundler/webpack.dev.js"
     },
     "dependencies": {
+        "three": "^0.134.0"
+    },
+    "devDependencies": {
+        "webpack": "^5.60.0",
+        "webpack-cli": "^4.9.1",
+        "webpack-dev-server": "^4.4.0",
+        "webpack-merge": "^5.8.0",
+        "@types/three": "^0.134.0",
         "@babel/core": "^7.15.8",
         "@babel/preset-env": "^7.15.8",
         "babel-loader": "^8.2.3",
@@ -19,14 +27,6 @@
         "portfinder-sync": "0.0.2",
         "raw-loader": "^4.0.2",
         "style-loader": "^3.3.1",
-        "three": "^0.134.0",
-        "webpack": "^5.60.0",
-        "webpack-cli": "^4.9.1",
-        "webpack-dev-server": "^4.4.0",
-        "webpack-merge": "^5.8.0"
-    },
-    "devDependencies": {
-        "@types/three": "^0.134.0",
         "ts-loader": "^9.2.6",
         "typescript": "^4.4.4"
     }
