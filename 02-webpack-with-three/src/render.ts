@@ -1,3 +1,6 @@
+import { WebGLRenderer } from "three";
+import { Size } from "./size";
+
 const RENDER_EL_SELECTOR = "canvas.root";
 
 const getCanvas = () => {
@@ -8,4 +11,11 @@ const getCanvas = () => {
     );
   }
   return canvas;
+};
+
+const getRenderer = (size: Size) => {
+  const canvas = getCanvas();
+  const renderer = new WebGLRenderer({ canvas });
+  renderer.setSize(size.width, size.height);
+  return renderer;
 };
