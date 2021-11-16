@@ -1,11 +1,9 @@
-import { Scene } from "three";
-import { Size } from "./size";
+import { Camera, Scene } from "three";
 import { getSphere } from "./sphere";
-import { getCamera } from "./camera";
 
-export const constructScene = (size: Size) => {
+export const constructScene = (camera: Camera) => {
   const scene = new Scene();
   scene.add(getSphere());
-  scene.add(getCamera(size));
+  scene.add(camera);
   return scene;
 };
