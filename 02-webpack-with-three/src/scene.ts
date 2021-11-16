@@ -16,6 +16,7 @@ export const constructScene = (camera: Camera) => {
   sphere.rotation.y = Math.PI * 0.25;
   // sphere.rotation.reorder("YX")
   camera.position.set(2, 2, 8);
+  camera.lookAt(sphere.position);
   scene.add(sphere);
   scene.add(camera);
   scene.add(axesHelper);
