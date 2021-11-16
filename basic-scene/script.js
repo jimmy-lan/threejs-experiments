@@ -1,3 +1,9 @@
+/*
+ * A simple script to create a THREE.js scene with a box mesh, and render
+ * the scene inside of a canvas using WebGLRenderer provided by THREE.js.
+ * https://threejs.org/docs/#api/en/renderers/WebGLRenderer.
+ */
+
 const getCanvas = () => {
   const canvas = document.querySelector("canvas.root");
   if (!canvas) {
