@@ -25,7 +25,15 @@ const material = new THREE.MeshBasicMaterial({ color: "#6898FD" });
 const box = new THREE.Mesh(geometry, material);
 
 const camera = new THREE.PerspectiveCamera(50, renderSize.getAspect());
+// Allows us to see the box from the front.
+camera.position.z = 3;
 
 const scene = THREE.Scene();
 scene.add(box);
 scene.add(camera);
+
+const renderer = new THREE.WebGLRenderer({
+  canvas,
+});
+renderer.setSize(renderSize.width, renderSize.height);
+renderer.render(scene, camera);
