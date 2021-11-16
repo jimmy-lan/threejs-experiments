@@ -1,5 +1,4 @@
 import "./style.css";
-import { getSphere } from "./sphere";
 import { getCamera } from "./camera";
 import { Size } from "./size";
 import { getRenderer } from "./renderer";
