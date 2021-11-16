@@ -13,10 +13,10 @@ module.exports = {
   devtool: "source-map",
   plugins: [
     new CopyWebpackPlugin({
-      patterns: [{ from: path.resolve(__dirname, "../static") }],
+      patterns: [{ from: path.resolve(__dirname, "../public/assets") }],
     }),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "../src/index.html"),
+      template: path.resolve(__dirname, "../public/index.html"),
       minify: true,
     }),
     new MiniCSSExtractPlugin(),
@@ -24,7 +24,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(html)$/,
+        test: /\.html$/,
         use: "html-loader",
       },
       {
