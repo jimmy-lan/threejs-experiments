@@ -18,7 +18,7 @@ const getCube = (
   );
 };
 
-const getCubeGroup = () => {
+export const getCubeGroup = () => {
   const group = new Group();
   const cube1 = getCube(1, 1, 1, "#ff0000");
   const cube2 = getCube(1, 1, 1, "#00ff00");
