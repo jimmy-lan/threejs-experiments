@@ -1,15 +1,26 @@
+import {
+  BoxGeometry,
+  Mesh,
+  MeshBasicMaterial,
+  PerspectiveCamera,
+  Scene,
+  WebGLRenderer,
+} from "three";
 import "./style.css";
-import { getCamera } from "./camera";
 import { Size } from "./size";
-import { getRenderer } from "./renderer";
-import { constructScene } from "./scene";
 
-const start = () => {
-  const size = new Size();
-  const camera = getCamera(size);
-  const scene = constructScene(camera);
-  const renderer = getRenderer(size);
-  renderer.render(scene, camera);
-};
+const RENDER_CANVAS_SELECTOR = "canvas.root";
 
-start();
+const size = new Size();
+const cube = new Mesh(
+  new BoxGeometry(1, 1, 1),
+  new MeshBasicMaterial({ color: "#6898FD" })
+);
+const camera = new PerspectiveCamera(50, size.aspect);
+camera.position.z = 3;
+
+const scene = new Scene();
+scene.add(cube, camera);
+const canvas = document.querySelector(RENDER_CANVAS_SELECTOR);
+const renderer = new WebGLRenderer({ canvas });
+renderer.render(scene, camera);
