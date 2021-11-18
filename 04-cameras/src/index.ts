@@ -1,5 +1,8 @@
 import {
   BoxGeometry,
+  EdgesGeometry,
+  LineBasicMaterial,
+  LineSegments,
   Mesh,
   MeshBasicMaterial,
   PerspectiveCamera,
@@ -17,11 +20,15 @@ const cube = new Mesh(
   new BoxGeometry(1, 1, 1),
   new MeshBasicMaterial({ color: "#6898FD" })
 );
+const cubeEdgeLines = new LineSegments(
+  new EdgesGeometry(cube.geometry),
+  new LineBasicMaterial({ color: "#fff" })
+);
 const camera = new PerspectiveCamera(50, size.aspect);
 camera.position.z = 3;
 
 const scene = new Scene();
-scene.add(cube, camera);
+scene.add(cube, cubeEdgeLines, camera);
 const canvas = document.querySelector(RENDER_CANVAS_SELECTOR);
 const renderer = new WebGLRenderer({ canvas });
 renderer.setSize(size.width, size.height);
