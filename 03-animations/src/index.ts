@@ -30,9 +30,9 @@ let rotateY = 0;
 
 const beforeRender = () => {
   cube.rotation.y = rotateY;
-  rotateY += 1;
+  rotateY += 0.01;
   renderer.render(scene, camera);
   requestAnimationFrame(beforeRender);
 };
 
-// requestAnimationFrame(beforeRender);
+requestAnimationFrame(beforeRender);
