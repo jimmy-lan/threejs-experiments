@@ -42,7 +42,11 @@ addEventListener("mousemove", (event: MouseEvent) => {
 });
 
 const renderFrame = () => {
-  camera.position.set(cursor.x * 5, cursor.y * 5, camera.position.z);
+  camera.position.set(
+    Math.sin(cursor.x * Math.PI * 2) * 3,
+    cursor.y * 5,
+    Math.cos(cursor.x * Math.PI * 2) * 3
+  );
   camera.lookAt(cube.position);
 
   renderer.render(scene, camera);
