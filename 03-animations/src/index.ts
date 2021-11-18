@@ -30,10 +30,8 @@ renderer.render(scene, camera);
 const clock = new Clock();
 
 const beforeRender = () => {
-  clock.stop();
-  const elapsedTime = clock.getElapsedTime();
-  clock.start();
-  cube.rotation.y += 0.3 * elapsedTime;
+  const delta = clock.getDelta();
+  cube.rotation.y += 0.3 * delta;
   renderer.render(scene, camera);
   requestAnimationFrame(beforeRender);
 };
