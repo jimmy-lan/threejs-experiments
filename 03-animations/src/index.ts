@@ -25,3 +25,10 @@ const canvas = document.querySelector(RENDER_CANVAS_SELECTOR);
 const renderer = new WebGLRenderer({ canvas });
 renderer.setSize(size.width, size.height);
 renderer.render(scene, camera);
+
+const beforeRender = () => {};
+
+requestAnimationFrame(() => {
+  beforeRender();
+  requestAnimationFrame(beforeRender);
+});
