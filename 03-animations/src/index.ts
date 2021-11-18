@@ -23,4 +23,5 @@ const scene = new Scene();
 scene.add(cube, camera);
 const canvas = document.querySelector(RENDER_CANVAS_SELECTOR);
 const renderer = new WebGLRenderer({ canvas });
+renderer.setSize(size.width, size.height);
 renderer.render(scene, camera);
