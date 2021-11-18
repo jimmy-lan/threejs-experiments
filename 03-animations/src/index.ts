@@ -1,6 +1,5 @@
 import {
   BoxGeometry,
-  Clock,
   Mesh,
   MeshBasicMaterial,
   PerspectiveCamera,
@@ -9,6 +8,7 @@ import {
 } from "three";
 import "./style.css";
 import { Size } from "./size";
+import gsap from "gsap";
 
 const RENDER_CANVAS_SELECTOR = "canvas.root";
 
@@ -27,11 +27,9 @@ const renderer = new WebGLRenderer({ canvas });
 renderer.setSize(size.width, size.height);
 renderer.render(scene, camera);
 
-const clock = new Clock();
+gsap.to(cube.position, { duration: 1, x: 2 });
 
 const beforeRender = () => {
-  const delta = clock.getDelta();
-  cube.rotation.y += 0.3 * delta;
   renderer.render(scene, camera);
   requestAnimationFrame(beforeRender);
 };
