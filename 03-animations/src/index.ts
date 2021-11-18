@@ -26,11 +26,14 @@ const renderer = new WebGLRenderer({ canvas });
 renderer.setSize(size.width, size.height);
 renderer.render(scene, camera);
 
-let rotateY = 0;
+let lastRenderTime = Date.now();
 
 const beforeRender = () => {
-  cube.rotation.y = rotateY;
-  rotateY += 0.01;
+  const currentTime = Date.now();
+  const elapsedTime = currentTime - lastRenderTime;
+  lastRenderTime = currentTime;
+
+  cube.rotation.y += 0.0003 * elapsedTime;
   renderer.render(scene, camera);
   requestAnimationFrame(beforeRender);
 };
