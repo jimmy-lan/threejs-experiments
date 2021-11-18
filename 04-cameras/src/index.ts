@@ -22,7 +22,7 @@ const cube = new Mesh(
 );
 const cubeEdgeLines = new LineSegments(
   new EdgesGeometry(cube.geometry),
-  new LineBasicMaterial({ color: "#fff" })
+  new LineBasicMaterial({ color: "#fff", linewidth: 3, linejoin: "bevel" })
 );
 const camera = new PerspectiveCamera(50, size.aspect);
 camera.position.z = 3;
