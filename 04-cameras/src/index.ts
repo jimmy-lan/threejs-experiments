@@ -4,6 +4,7 @@ import {
   MeshBasicMaterial,
   PerspectiveCamera,
   Scene,
+  Vector2,
   WebGLRenderer,
 } from "three";
 import "./style.css";
@@ -25,3 +26,9 @@ const canvas = document.querySelector(RENDER_CANVAS_SELECTOR);
 const renderer = new WebGLRenderer({ canvas });
 renderer.setSize(size.width, size.height);
 renderer.render(scene, camera);
+
+const cursor = new Vector2(0, 0);
+addEventListener("mousemove", (event: MouseEvent) => {
+  cursor.x = event.clientX / size.width;
+  cursor.y = event.clientY / size.height;
+});
