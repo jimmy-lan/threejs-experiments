@@ -29,6 +29,7 @@ renderer.render(scene, camera);
 
 const cursor = new Vector2(0, 0);
 addEventListener("mousemove", (event: MouseEvent) => {
-  cursor.x = event.clientX / size.width;
-  cursor.y = event.clientY / size.height;
+  // x, y range: [-0.5, 0.5]
+  cursor.x = event.clientX / size.width - 0.5;
+  cursor.y = event.clientY / size.height - 0.5;
 });
