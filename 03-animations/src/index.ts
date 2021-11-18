@@ -1,5 +1,6 @@
 import {
   BoxGeometry,
+  Clock,
   Mesh,
   MeshBasicMaterial,
   PerspectiveCamera,
@@ -26,14 +27,13 @@ const renderer = new WebGLRenderer({ canvas });
 renderer.setSize(size.width, size.height);
 renderer.render(scene, camera);
 
-let lastRenderTime = Date.now();
+const clock = new Clock();
 
 const beforeRender = () => {
-  const currentTime = Date.now();
-  const elapsedTime = currentTime - lastRenderTime;
-  lastRenderTime = currentTime;
-
-  cube.rotation.y += 0.0003 * elapsedTime;
+  clock.stop();
+  const elapsedTime = clock.getElapsedTime();
+  clock.start();
+  cube.rotation.y += 0.3 * elapsedTime;
   renderer.render(scene, camera);
   requestAnimationFrame(beforeRender);
 };
