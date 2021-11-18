@@ -31,5 +31,15 @@ const cursor = new Vector2(0, 0);
 addEventListener("mousemove", (event: MouseEvent) => {
   // x, y range: [-0.5, 0.5]
   cursor.x = event.clientX / size.width - 0.5;
-  cursor.y = event.clientY / size.height - 0.5;
+  cursor.y = -(event.clientY / size.height - 0.5);
 });
+
+const renderFrame = () => {
+  camera.position.set(cursor.x * 5, cursor.y * 5, camera.position.z);
+  camera.lookAt(cube.position);
+
+  renderer.render(scene, camera);
+  requestAnimationFrame(renderFrame);
+};
+
+requestAnimationFrame(renderFrame);
