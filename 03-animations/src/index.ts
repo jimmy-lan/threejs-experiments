@@ -26,9 +26,13 @@ const renderer = new WebGLRenderer({ canvas });
 renderer.setSize(size.width, size.height);
 renderer.render(scene, camera);
 
-const beforeRender = () => {};
+let rotateY = 0;
 
-requestAnimationFrame(() => {
-  beforeRender();
+const beforeRender = () => {
+  cube.rotation.y = rotateY;
+  rotateY += 1;
+  renderer.render(scene, camera);
   requestAnimationFrame(beforeRender);
-});
+};
+
+// requestAnimationFrame(beforeRender);
