@@ -33,6 +33,7 @@ scene.add(cube, cubeEdgeLines, camera);
 
 const canvas = document.querySelector(RENDER_CANVAS_SELECTOR);
 const controls = new OrbitControls(camera, canvas as HTMLElement);
+// https://threejs.org/docs/#examples/en/controls/OrbitControls.dampingFactor
 controls.enableDamping = true;
 // controls.target.y = 1;
 // controls.update();
