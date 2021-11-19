@@ -31,11 +31,12 @@ camera.position.z = 3;
 const scene = new Scene();
 scene.add(cube, cubeEdgeLines, camera);
 const canvas = document.querySelector(RENDER_CANVAS_SELECTOR);
+const controls = new OrbitControls(camera, canvas as HTMLElement);
+// controls.target.y = 1;
+// controls.update();
 const renderer = new WebGLRenderer({ canvas });
 renderer.setSize(size.width, size.height);
 renderer.render(scene, camera);
-
-const controls = new OrbitControls(camera, canvas as HTMLElement);
 
 const cursor = new Vector2(0, 0);
 addEventListener("mousemove", (event: MouseEvent) => {
