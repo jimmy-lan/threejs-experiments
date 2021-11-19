@@ -12,6 +12,7 @@ import {
 } from "three";
 import "./style.css";
 import { Size } from "./size";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 const RENDER_CANVAS_SELECTOR = "canvas.root";
 
@@ -34,6 +35,8 @@ const renderer = new WebGLRenderer({ canvas });
 renderer.setSize(size.width, size.height);
 renderer.render(scene, camera);
 
+const controls = new OrbitControls(camera, canvas as HTMLElement);
+
 const cursor = new Vector2(0, 0);
 addEventListener("mousemove", (event: MouseEvent) => {
   // x, y range: [-0.5, 0.5]
@@ -42,12 +45,12 @@ addEventListener("mousemove", (event: MouseEvent) => {
 });
 
 const renderFrame = () => {
-  camera.position.set(
-    Math.sin(cursor.x * Math.PI * 2) * 3,
-    cursor.y * 5,
-    Math.cos(cursor.x * Math.PI * 2) * 3
-  );
-  camera.lookAt(cube.position);
+  // camera.position.set(
+  //   Math.sin(cursor.x * Math.PI * 2) * 3,
+  //   cursor.y * 5,
+  //   Math.cos(cursor.x * Math.PI * 2) * 3
+  // );
+  // camera.lookAt(cube.position);
 
   renderer.render(scene, camera);
   requestAnimationFrame(renderFrame);
