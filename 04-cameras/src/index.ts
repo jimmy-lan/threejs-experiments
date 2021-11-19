@@ -30,10 +30,13 @@ camera.position.z = 3;
 
 const scene = new Scene();
 scene.add(cube, cubeEdgeLines, camera);
+
 const canvas = document.querySelector(RENDER_CANVAS_SELECTOR);
 const controls = new OrbitControls(camera, canvas as HTMLElement);
+controls.enableDamping = true;
 // controls.target.y = 1;
 // controls.update();
+
 const renderer = new WebGLRenderer({ canvas });
 renderer.setSize(size.width, size.height);
 renderer.render(scene, camera);
@@ -52,6 +55,8 @@ const renderFrame = () => {
   //   Math.cos(cursor.x * Math.PI * 2) * 3
   // );
   // camera.lookAt(cube.position);
+
+  controls.update();
 
   renderer.render(scene, camera);
   requestAnimationFrame(renderFrame);
