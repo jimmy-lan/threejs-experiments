@@ -28,13 +28,6 @@ const cubeEdgeLines = new LineSegments(
 const camera = new PerspectiveCamera(50, size.aspect);
 camera.position.z = 3;
 
-window.addEventListener("resize", () => {
-  size.width = window.innerWidth;
-  size.height = window.innerHeight;
-  camera.aspect = size.aspect;
-  camera.updateProjectionMatrix();
-});
-
 const scene = new Scene();
 scene.add(cube, cubeEdgeLines, camera);
 
@@ -54,6 +47,14 @@ addEventListener("mousemove", (event: MouseEvent) => {
   // x, y range: [-0.5, 0.5]
   cursor.x = event.clientX / size.width - 0.5;
   cursor.y = -(event.clientY / size.height - 0.5);
+});
+
+window.addEventListener("resize", () => {
+  size.width = window.innerWidth;
+  size.height = window.innerHeight;
+  camera.aspect = size.aspect;
+  camera.updateProjectionMatrix();
+  renderer.setSize(size.width, size.height);
 });
 
 const renderFrame = () => {
