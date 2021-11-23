@@ -56,6 +56,7 @@ window.addEventListener("resize", () => {
   camera.aspect = size.aspect;
   camera.updateProjectionMatrix();
   renderer.setSize(size.width, size.height);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 3));
 });
 
 const renderFrame = () => {
