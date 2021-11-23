@@ -16,7 +16,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 const RENDER_CANVAS_SELECTOR = "canvas.root";
 
-const size = new Size();
+const size = new Size(window.innerWidth, window.innerHeight);
 const cube = new Mesh(
   new BoxGeometry(1, 1, 1),
   new MeshBasicMaterial({ color: "#6898FD" })
@@ -27,6 +27,13 @@ const cubeEdgeLines = new LineSegments(
 );
 const camera = new PerspectiveCamera(50, size.aspect);
 camera.position.z = 3;
+
+window.addEventListener("resize", () => {
+  size.width = window.innerWidth;
+  size.height = window.innerHeight;
+  camera.aspect = size.aspect;
+  camera.updateProjectionMatrix();
+});
 
 const scene = new Scene();
 scene.add(cube, cubeEdgeLines, camera);
