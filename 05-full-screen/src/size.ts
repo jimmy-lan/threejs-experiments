@@ -2,10 +2,7 @@ export class Size {
   width: number;
   height: number;
 
-  constructor(
-    width: number = window.innerWidth,
-    height: number = window.innerHeight
-  ) {
+  constructor(width: number = 800, height: number = 600) {
     this.width = width;
     this.height = height;
   }
