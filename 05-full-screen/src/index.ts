@@ -59,8 +59,12 @@ window.addEventListener("resize", () => {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 3));
 });
 
-window.addEventListener("dblclick", () => {
-  console.log("double click");
+window.addEventListener("dblclick", async () => {
+  if (!document.fullscreenElement) {
+    await canvas.requestFullscreen();
+    return;
+  }
+  await document.exitFullscreen();
 });
 
 const renderFrame = () => {
