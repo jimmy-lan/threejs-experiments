@@ -60,11 +60,24 @@ window.addEventListener("resize", () => {
 });
 
 window.addEventListener("dblclick", async () => {
-  if (!document.fullscreenElement) {
-    await canvas.requestFullscreen();
+  const fullscreenElement =
+    // @ts-ignore
+    document.fullscreenElement || document.webkitFullscreenElement;
+  if (!fullscreenElement) {
+    if (canvas.requestFullscreen) {
+      await canvas.requestFullscreen();
+    } else {
+      // @ts-ignore
+      await canvas.webkitRequestFullscreen();
+    }
     return;
   }
-  await document.exitFullscreen();
+  if (document.exitFullscreen) {
+    await document.exitFullscreen();
+  } else {
+    // @ts-ignore
+    await document.webkitExitFullscreen();
+  }
 });
 
 const renderFrame = () => {
