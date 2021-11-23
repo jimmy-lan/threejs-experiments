@@ -40,6 +40,7 @@ controls.enableDamping = true;
 
 const renderer = new WebGLRenderer({ canvas });
 renderer.setSize(size.width, size.height);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 3));
 renderer.render(scene, camera);
 
 const cursor = new Vector2(0, 0);
