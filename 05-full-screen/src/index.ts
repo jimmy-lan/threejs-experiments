@@ -59,6 +59,10 @@ window.addEventListener("resize", () => {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 3));
 });
 
+window.addEventListener("dblclick", () => {
+  console.log("double click");
+});
+
 const renderFrame = () => {
   // camera.position.set(
   //   Math.sin(cursor.x * Math.PI * 2) * 3,
