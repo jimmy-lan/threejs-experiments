@@ -21,7 +21,15 @@ import { getBufferGeometry } from "./getBufferGeometry";
 const RENDER_CANVAS_SELECTOR = "canvas.root";
 
 const size = new Size(window.innerWidth, window.innerHeight);
-const geometry = getBufferGeometry([1, 0, 0], [0, 1, 0], [0, 0, 1]);
+const randomVertices = [];
+for (let i = 0; i < 50 * 3 * 3; i++) {
+  randomVertices.push([
+    Math.random() - 0.5,
+    Math.random() - 0.5,
+    Math.random() - 0.5,
+  ]);
+}
+const geometry = getBufferGeometry(...randomVertices);
 const mesh = new Mesh(
   geometry,
   new MeshBasicMaterial({ color: "#6898FD", wireframe: true })
