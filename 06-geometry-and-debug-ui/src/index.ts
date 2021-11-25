@@ -1,5 +1,7 @@
 import {
   BoxGeometry,
+  BufferAttribute,
+  BufferGeometry,
   EdgesGeometry,
   LineBasicMaterial,
   LineSegments,
@@ -17,19 +19,20 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 const RENDER_CANVAS_SELECTOR = "canvas.root";
 
 const size = new Size(window.innerWidth, window.innerHeight);
-const cube = new Mesh(
-  new BoxGeometry(1, 1, 1, 2, 2, 2),
+const positions = new Float32Array([1, 0, 0, 0, 1, 0, 0, 0, 1]);
+const positionsAttribute = new BufferAttribute(positions, 3);
+const geometry = new BufferGeometry();
+geometry.setAttribute("position", positionsAttribute);
+const mesh = new Mesh(
+  geometry,
   new MeshBasicMaterial({ color: "#6898FD", wireframe: true })
 );
-const cubeEdgeLines = new LineSegments(
-  new EdgesGeometry(cube.geometry),
-  new LineBasicMaterial({ color: "#fff", linewidth: 3, linejoin: "bevel" })
-);
+
 const camera = new PerspectiveCamera(50, size.aspect);
 camera.position.z = 3;
 
 const scene = new Scene();
-scene.add(cube, cubeEdgeLines, camera);
+scene.add(mesh, camera);
 
 const canvas = document.querySelector(RENDER_CANVAS_SELECTOR);
 const controls = new OrbitControls(camera, canvas as HTMLElement);
