@@ -1,16 +1,9 @@
 import {
-  BoxGeometry,
-  BufferAttribute,
-  BufferGeometry,
-  EdgesGeometry,
-  LineBasicMaterial,
-  LineSegments,
   Mesh,
   MeshBasicMaterial,
   PerspectiveCamera,
   Scene,
   Vector2,
-  Vector3,
   WebGLRenderer,
 } from "three";
 import "./style.css";
