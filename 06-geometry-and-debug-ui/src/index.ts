@@ -10,19 +10,18 @@ import {
   PerspectiveCamera,
   Scene,
   Vector2,
+  Vector3,
   WebGLRenderer,
 } from "three";
 import "./style.css";
 import { Size } from "./Size";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { getBufferGeometry } from "./getBufferGeometry";
 
 const RENDER_CANVAS_SELECTOR = "canvas.root";
 
 const size = new Size(window.innerWidth, window.innerHeight);
-const positions = new Float32Array([1, 0, 0, 0, 1, 0, 0, 0, 1]);
-const positionsAttribute = new BufferAttribute(positions, 3);
-const geometry = new BufferGeometry();
-geometry.setAttribute("position", positionsAttribute);
+const geometry = getBufferGeometry([1, 0, 0], [0, 1, 0], [0, 0, 1]);
 const mesh = new Mesh(
   geometry,
   new MeshBasicMaterial({ color: "#6898FD", wireframe: true })
