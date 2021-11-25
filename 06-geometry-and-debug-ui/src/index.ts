@@ -13,7 +13,7 @@ import {
   WebGLRenderer,
 } from "three";
 import "./style.css";
-import { Size } from "./size";
+import { Size } from "./Size";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 const RENDER_CANVAS_SELECTOR = "canvas.root";
