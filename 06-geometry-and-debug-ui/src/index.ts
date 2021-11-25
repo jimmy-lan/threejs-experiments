@@ -19,7 +19,7 @@ const RENDER_CANVAS_SELECTOR = "canvas.root";
 const size = new Size(window.innerWidth, window.innerHeight);
 const cube = new Mesh(
   new BoxGeometry(1, 1, 1),
-  new MeshBasicMaterial({ color: "#6898FD" })
+  new MeshBasicMaterial({ color: "#6898FD", wireframe: true })
 );
 const cubeEdgeLines = new LineSegments(
   new EdgesGeometry(cube.geometry),
