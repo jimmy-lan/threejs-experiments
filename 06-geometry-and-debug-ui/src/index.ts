@@ -1,4 +1,5 @@
 import {
+  BoxGeometry,
   Mesh,
   MeshBasicMaterial,
   PerspectiveCamera,
@@ -14,19 +15,8 @@ import { getBufferGeometry } from "./getBufferGeometry";
 const RENDER_CANVAS_SELECTOR = "canvas.root";
 
 const size = new Size(window.innerWidth, window.innerHeight);
-const randomVertices = [];
-for (let i = 0; i < 50 * 3 * 3; i++) {
-  randomVertices.push([
-    Math.random() - 0.5,
-    Math.random() - 0.5,
-    Math.random() - 0.5,
-  ]);
-}
-const geometry = getBufferGeometry(...randomVertices);
-const mesh = new Mesh(
-  geometry,
-  new MeshBasicMaterial({ color: "#6898FD", wireframe: true })
-);
+const geometry = new BoxGeometry(1, 1, 1);
+const mesh = new Mesh(geometry, new MeshBasicMaterial({ color: "#6898FD" }));
 
 const camera = new PerspectiveCamera(50, size.aspect);
 camera.position.z = 3;
