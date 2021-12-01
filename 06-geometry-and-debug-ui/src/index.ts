@@ -18,7 +18,7 @@ const RENDER_CANVAS_SELECTOR = "canvas.root";
 const size = new Size(window.innerWidth, window.innerHeight);
 const geometry = new BoxGeometry(1, 1, 1);
 const material = new MeshBasicMaterial({ color: "#6898FD" });
-const mesh = new Mesh(geometry);
+const mesh = new Mesh(geometry, material);
 
 const camera = new PerspectiveCamera(50, size.aspect);
 camera.position.z = 3;
@@ -36,6 +36,7 @@ controls.enableDamping = true;
 const gui = new GUI();
 gui.add(mesh.position, "y").min(-3).max(3).step(0.05);
 gui.add(mesh, "visible");
+gui.add(material, "wireframe");
 
 const renderer = new WebGLRenderer({ canvas });
 renderer.setSize(size.width, size.height);
