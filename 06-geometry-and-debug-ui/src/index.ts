@@ -10,7 +10,6 @@ import {
 import "./style.css";
 import { Size } from "./Size";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { getBufferGeometry } from "./getBufferGeometry";
 
 const RENDER_CANVAS_SELECTOR = "canvas.root";
 
