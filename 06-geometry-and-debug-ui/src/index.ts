@@ -33,7 +33,7 @@ controls.enableDamping = true;
 // controls.update();
 
 const gui = new GUI();
-gui.add(mesh.position, "y");
+gui.add(mesh.position, "y").min(-3).max(3).step(0.05);
 
 const renderer = new WebGLRenderer({ canvas });
 renderer.setSize(size.width, size.height);
