@@ -21,6 +21,9 @@ const RENDER_CANVAS_SELECTOR = "canvas.root";
 
 const parameters = {
   color: "#6898FD",
+  spin: () => {
+    console.log("spin");
+  },
 };
 
 const size = new Size(window.innerWidth, window.innerHeight);
