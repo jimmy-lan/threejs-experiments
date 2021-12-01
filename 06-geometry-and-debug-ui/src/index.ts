@@ -15,8 +15,6 @@ import GUI from "lil-gui";
 
 const RENDER_CANVAS_SELECTOR = "canvas.root";
 
-const gui = new GUI();
-
 const size = new Size(window.innerWidth, window.innerHeight);
 const geometry = new BoxGeometry(1, 1, 1);
 const mesh = new Mesh(geometry, new MeshBasicMaterial({ color: "#6898FD" }));
@@ -33,6 +31,9 @@ const controls = new OrbitControls(camera, canvas as HTMLElement);
 controls.enableDamping = true;
 // controls.target.y = 1;
 // controls.update();
+
+const gui = new GUI();
+gui.add(mesh.position, "y");
 
 const renderer = new WebGLRenderer({ canvas });
 renderer.setSize(size.width, size.height);
