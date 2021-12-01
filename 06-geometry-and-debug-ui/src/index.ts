@@ -1,5 +1,9 @@
 import {
   BoxGeometry,
+  EdgesGeometry,
+  Group,
+  LineBasicMaterial,
+  LineSegments,
   Mesh,
   MeshBasicMaterial,
   PerspectiveCamera,
@@ -15,16 +19,26 @@ import GUI from "lil-gui";
 
 const RENDER_CANVAS_SELECTOR = "canvas.root";
 
+const parameters = {
+  color: "#6898FD",
+};
+
 const size = new Size(window.innerWidth, window.innerHeight);
-const geometry = new BoxGeometry(1, 1, 1);
-const material = new MeshBasicMaterial({ color: "#6898FD" });
-const mesh = new Mesh(geometry, material);
+const boxGeometry = new BoxGeometry(1, 1, 1);
+const cubeMaterial = new MeshBasicMaterial({ color: parameters.color });
+const cube = new Mesh(boxGeometry, cubeMaterial);
+const cubeOutline = new LineSegments(
+  new EdgesGeometry(boxGeometry),
+  new LineBasicMaterial({ color: "white" })
+);
+const cubeGroup = new Group();
+cubeGroup.add(cube, cubeOutline);
 
 const camera = new PerspectiveCamera(50, size.aspect);
 camera.position.z = 3;
 
 const scene = new Scene();
-scene.add(mesh, camera);
+scene.add(cubeGroup, camera);
 
 const canvas = document.querySelector(RENDER_CANVAS_SELECTOR);
 const controls = new OrbitControls(camera, canvas as HTMLElement);
@@ -34,9 +48,12 @@ controls.enableDamping = true;
 // controls.update();
 
 const gui = new GUI();
-gui.add(mesh.position, "y").min(-3).max(3).step(0.05);
-gui.add(mesh, "visible");
-gui.add(material, "wireframe");
+gui.add(cubeGroup.position, "y").min(-3).max(3).step(0.05);
+gui.add(cubeGroup, "visible");
+gui.add(cubeMaterial, "wireframe");
+gui.addColor(parameters, "color").onChange(() => {
+  cubeMaterial.color.set(parameters.color);
+});
 
 const renderer = new WebGLRenderer({ canvas });
 renderer.setSize(size.width, size.height);
