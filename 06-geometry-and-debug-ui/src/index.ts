@@ -57,6 +57,7 @@ gui.add(cubeMaterial, "wireframe");
 gui.addColor(parameters, "color").onChange(() => {
   cubeMaterial.color.set(parameters.color);
 });
+gui.add(parameters, "spin");
 
 const renderer = new WebGLRenderer({ canvas });
 renderer.setSize(size.width, size.height);
