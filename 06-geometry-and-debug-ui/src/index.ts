@@ -11,9 +11,11 @@ import "./style.css";
 import { Size } from "./Size";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import gsap from "gsap";
-import lil from "lil-gui";
+import GUI from "lil-gui";
 
 const RENDER_CANVAS_SELECTOR = "canvas.root";
+
+const gui = new GUI();
 
 const size = new Size(window.innerWidth, window.innerHeight);
 const geometry = new BoxGeometry(1, 1, 1);
