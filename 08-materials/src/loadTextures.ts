@@ -11,7 +11,7 @@ const loadDoorTexture = (filename: string) => {
 };
 
 const loadMatcapTexture = (filename: string) => {
-  return loadTexture("matcap", filename);
+  return loadTexture("matcaps", filename);
 };
 
 export const loadTextures = () => {
