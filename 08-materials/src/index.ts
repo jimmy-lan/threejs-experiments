@@ -1,4 +1,13 @@
-import { PerspectiveCamera, Scene, WebGLRenderer } from "three";
+import {
+  Mesh,
+  MeshBasicMaterial,
+  PerspectiveCamera,
+  PlaneGeometry,
+  Scene,
+  SphereGeometry,
+  TorusGeometry,
+  WebGLRenderer,
+} from "three";
 import "./style.css";
 import { Size } from "./Size";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
@@ -6,12 +15,22 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 const RENDER_CANVAS_SELECTOR = "canvas.root";
 
 const size = new Size(window.innerWidth, window.innerHeight);
-
 const camera = new PerspectiveCamera(50, size.aspect);
 camera.position.z = 3;
-
 const scene = new Scene();
-scene.add(camera);
+
+const material = new MeshBasicMaterial();
+
+const sphere = new Mesh(new SphereGeometry(0.5, 16, 16), material);
+sphere.position.setX(-1.5);
+
+const plane = new Mesh(new PlaneGeometry(1, 1), material);
+plane.position.setX(0);
+
+const torus = new Mesh(new TorusGeometry(0.3, 0.2, 16, 32), material);
+torus.position.setX(1.5);
+
+scene.add(camera, sphere, plane, torus);
 
 const canvas = document.querySelector(RENDER_CANVAS_SELECTOR);
 const controls = new OrbitControls(camera, canvas as HTMLElement);
