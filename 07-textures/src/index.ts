@@ -21,7 +21,7 @@ const RENDER_CANVAS_SELECTOR = "canvas.root";
 
 const loadingManager = new LoadingManager();
 const textureLoader = new TextureLoader(loadingManager);
-const texture = textureLoader.load("assets/door.jpg");
+const texture = textureLoader.load("assets/door/color.jpg");
 
 const size = new Size(window.innerWidth, window.innerHeight);
 const boxGeometry = new BoxGeometry(1, 1, 1);
