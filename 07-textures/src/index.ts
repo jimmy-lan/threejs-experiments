@@ -20,14 +20,14 @@ const RENDER_CANVAS_SELECTOR = "canvas.root";
 
 const image = new Image();
 const texture = new Texture(image);
-image.src = "/assets/door";
+image.src = "/assets/door.jpg";
 image.onload = () => {
   texture.needsUpdate = true;
 };
 
 const size = new Size(window.innerWidth, window.innerHeight);
 const boxGeometry = new BoxGeometry(1, 1, 1);
-const cubeMaterial = new MeshBasicMaterial({ color: "#6898FD", map: texture });
+const cubeMaterial = new MeshBasicMaterial({ map: texture });
 const cube = new Mesh(boxGeometry, cubeMaterial);
 const cubeOutline = new LineSegments(
   new EdgesGeometry(boxGeometry),
