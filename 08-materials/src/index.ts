@@ -1,5 +1,6 @@
 import {
   Clock,
+  DoubleSide,
   Mesh,
   MeshBasicMaterial,
   PerspectiveCamera,
@@ -24,6 +25,11 @@ const scene = new Scene();
 const textures = loadTextures();
 const material = new MeshBasicMaterial({
   map: textures.door.color,
+  color: "cyan",
+  opacity: 0.5,
+  transparent: true,
+  alphaMap: textures.door.alpha,
+  side: DoubleSide,
 });
 
 const sphere = new Mesh(new SphereGeometry(0.5, 16, 16), material);
