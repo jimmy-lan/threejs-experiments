@@ -4,6 +4,7 @@ import {
   Group,
   LineBasicMaterial,
   LineSegments,
+  LoadingManager,
   Mesh,
   MeshBasicMaterial,
   PerspectiveCamera,
@@ -18,7 +19,8 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 const RENDER_CANVAS_SELECTOR = "canvas.root";
 
-const textureLoader = new TextureLoader();
+const loadingManager = new LoadingManager();
+const textureLoader = new TextureLoader(loadingManager);
 const texture = textureLoader.load("assets/door.jpg");
 
 const size = new Size(window.innerWidth, window.innerHeight);
