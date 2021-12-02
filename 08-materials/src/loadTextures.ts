@@ -9,5 +9,11 @@ const loadDoorTexture = (filename: string) => {
 export const loadTextures = () => {
   const door = {
     color: loadDoorTexture("color.jpg"),
+    alpha: loadDoorTexture("alpha.jpg"),
+    ambientOcclusion: loadDoorTexture("ambientOcclusion.jpg"),
+    height: loadDoorTexture("height.jpg"),
+    normal: loadDoorTexture("normal.jpg"),
+    metalness: loadDoorTexture("metalness.jpg"),
+    roughness: loadDoorTexture("roughness.jpg"),
   };
 };
