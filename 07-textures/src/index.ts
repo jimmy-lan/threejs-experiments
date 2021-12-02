@@ -45,6 +45,7 @@ const roughnessTexture = textureLoader.load("assets/door/roughness.jpg");
 // colorTexture.center.y = 0.5;
 // colorTexture.rotation = 0.25 * Math.PI;
 
+colorTexture.generateMipmaps = false;
 colorTexture.minFilter = NearestFilter;
 colorTexture.magFilter = NearestFilter;
 
