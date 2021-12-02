@@ -8,7 +8,6 @@ import {
   MeshBasicMaterial,
   PerspectiveCamera,
   Scene,
-  Texture,
   TextureLoader,
   Vector2,
   WebGLRenderer,
