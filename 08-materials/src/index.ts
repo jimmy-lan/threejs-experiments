@@ -10,6 +10,7 @@ import {
   MeshNormalMaterial,
   MeshPhongMaterial,
   MeshToonMaterial,
+  NearestFilter,
   PerspectiveCamera,
   PlaneGeometry,
   PointLight,
@@ -61,6 +62,7 @@ scene.add(ambientLight, pointLight);
 // The lambert material reacts to light.
 // const material = new MeshLambertMaterial();
 // const material = new MeshPhongMaterial({ shininess: 100, specular: "#1188ff" });
+textures.gradient.colors3.magFilter = NearestFilter;
 const material = new MeshToonMaterial({
   gradientMap: textures.gradient.colors3,
 });
