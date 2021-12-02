@@ -37,6 +37,9 @@ colorTexture.repeat.y = 3;
 colorTexture.wrapS = RepeatWrapping;
 colorTexture.wrapT = RepeatWrapping;
 
+colorTexture.offset.x = 0.5;
+colorTexture.offset.y = 0.5;
+
 const size = new Size(window.innerWidth, window.innerHeight);
 const boxGeometry = new BoxGeometry(1, 1, 1);
 const cubeMaterial = new MeshBasicMaterial({ map: colorTexture });
