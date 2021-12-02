@@ -27,7 +27,7 @@ image.onload = () => {
 
 const size = new Size(window.innerWidth, window.innerHeight);
 const boxGeometry = new BoxGeometry(1, 1, 1);
-const cubeMaterial = new MeshBasicMaterial({ color: "#6898FD" });
+const cubeMaterial = new MeshBasicMaterial({ color: "#6898FD", map: texture });
 const cube = new Mesh(boxGeometry, cubeMaterial);
 const cubeOutline = new LineSegments(
   new EdgesGeometry(boxGeometry),
