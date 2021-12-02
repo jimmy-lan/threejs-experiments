@@ -63,6 +63,11 @@ scene.add(ambientLight, pointLight);
 // const material = new MeshLambertMaterial();
 // const material = new MeshPhongMaterial({ shininess: 100, specular: "#1188ff" });
 textures.gradient.colors3.magFilter = NearestFilter;
+textures.gradient.colors3.minFilter = NearestFilter;
+textures.gradient.colors3.generateMipmaps = false;
+textures.gradient.colors5.magFilter = NearestFilter;
+textures.gradient.colors5.minFilter = NearestFilter;
+textures.gradient.colors5.generateMipmaps = false;
 const material = new MeshToonMaterial({
   gradientMap: textures.gradient.colors3,
 });
