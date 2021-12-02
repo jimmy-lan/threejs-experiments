@@ -1,12 +1,16 @@
 import {
+  AmbientLight,
   Clock,
   DoubleSide,
   Mesh,
   MeshBasicMaterial,
+  MeshDepthMaterial,
+  MeshLambertMaterial,
   MeshMatcapMaterial,
   MeshNormalMaterial,
   PerspectiveCamera,
   PlaneGeometry,
+  PointLight,
   Scene,
   SphereGeometry,
   TorusGeometry,
@@ -39,7 +43,15 @@ const textures = loadTextures();
 // Doc: https://threejs.org/docs/#api/en/materials/MeshNormalMaterial
 // const material = new MeshNormalMaterial({ flatShading: true });
 
-const material = new MeshMatcapMaterial({ matcap: textures.matcap.regular });
+// const material = new MeshMatcapMaterial({ matcap: textures.matcap.regular });
+
+// const material = new MeshDepthMaterial();
+
+const ambientLight = new AmbientLight("#fff", 0.5);
+const pointLight = new PointLight("#fff", 0.5);
+pointLight.position.set(2, 3, 4);
+scene.add(ambientLight, pointLight);
+const material = new MeshLambertMaterial();
 
 const sphere = new Mesh(new SphereGeometry(0.5, 16, 16), material);
 sphere.position.setX(-1.5);
