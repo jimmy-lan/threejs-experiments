@@ -36,7 +36,7 @@ const textures = loadTextures();
 
 // Mesh normal material maps normals to colours.
 // Doc: https://threejs.org/docs/#api/en/materials/MeshNormalMaterial
-const material = new MeshNormalMaterial();
+const material = new MeshNormalMaterial({ flatShading: true });
 
 const sphere = new Mesh(new SphereGeometry(0.5, 16, 16), material);
 sphere.position.setX(-1.5);
