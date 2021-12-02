@@ -7,6 +7,7 @@ import {
   LoadingManager,
   Mesh,
   MeshBasicMaterial,
+  NearestFilter,
   PerspectiveCamera,
   RepeatWrapping,
   Scene,
@@ -22,7 +23,7 @@ const RENDER_CANVAS_SELECTOR = "canvas.root";
 
 const loadingManager = new LoadingManager();
 const textureLoader = new TextureLoader(loadingManager);
-const colorTexture = textureLoader.load("assets/door/color.jpg");
+const colorTexture = textureLoader.load("assets/minecraft.png");
 const alphaTexture = textureLoader.load("assets/door/alpha.jpg");
 const heightTexture = textureLoader.load("assets/door/height.jpg");
 const normalTexture = textureLoader.load("assets/door/normal.jpg");
@@ -32,17 +33,20 @@ const ambientOcclusionTexture = textureLoader.load(
 const metalnessTexture = textureLoader.load("assets/door/metalness.jpg");
 const roughnessTexture = textureLoader.load("assets/door/roughness.jpg");
 
-colorTexture.repeat.x = 2;
-colorTexture.repeat.y = 3;
-colorTexture.wrapS = RepeatWrapping;
-colorTexture.wrapT = RepeatWrapping;
+// colorTexture.repeat.x = 2;
+// colorTexture.repeat.y = 3;
+// colorTexture.wrapS = RepeatWrapping;
+// colorTexture.wrapT = RepeatWrapping;
+//
+// colorTexture.offset.x = 0.5;
+// colorTexture.offset.y = 0.5;
+//
+// colorTexture.center.x = 0.5;
+// colorTexture.center.y = 0.5;
+// colorTexture.rotation = 0.25 * Math.PI;
 
-colorTexture.offset.x = 0.5;
-colorTexture.offset.y = 0.5;
-
-colorTexture.center.x = 0.5;
-colorTexture.center.y = 0.5;
-colorTexture.rotation = 0.25 * Math.PI;
+colorTexture.minFilter = NearestFilter;
+colorTexture.magFilter = NearestFilter;
 
 const size = new Size(window.innerWidth, window.innerHeight);
 const boxGeometry = new BoxGeometry(1, 1, 1);
