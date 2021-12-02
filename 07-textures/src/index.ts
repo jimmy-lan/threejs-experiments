@@ -8,6 +8,7 @@ import {
   MeshBasicMaterial,
   PerspectiveCamera,
   Scene,
+  Texture,
   Vector2,
   WebGLRenderer,
 } from "three";
@@ -16,6 +17,13 @@ import { Size } from "./Size";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 const RENDER_CANVAS_SELECTOR = "canvas.root";
+
+const image = new Image();
+const texture = new Texture(image);
+image.src = "/assets/door";
+image.onload = () => {
+  texture.needsUpdate = true;
+};
 
 const size = new Size(window.innerWidth, window.innerHeight);
 const boxGeometry = new BoxGeometry(1, 1, 1);
