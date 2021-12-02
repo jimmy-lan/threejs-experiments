@@ -21,11 +21,11 @@ const RENDER_CANVAS_SELECTOR = "canvas.root";
 
 const loadingManager = new LoadingManager();
 const textureLoader = new TextureLoader(loadingManager);
-const texture = textureLoader.load("assets/door/color.jpg");
+const colorTexture = textureLoader.load("assets/door/color.jpg");
 
 const size = new Size(window.innerWidth, window.innerHeight);
 const boxGeometry = new BoxGeometry(1, 1, 1);
-const cubeMaterial = new MeshBasicMaterial({ map: texture });
+const cubeMaterial = new MeshBasicMaterial({ map: colorTexture });
 const cube = new Mesh(boxGeometry, cubeMaterial);
 const cubeOutline = new LineSegments(
   new EdgesGeometry(boxGeometry),
