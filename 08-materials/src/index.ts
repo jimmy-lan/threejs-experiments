@@ -9,6 +9,7 @@ import {
   MeshMatcapMaterial,
   MeshNormalMaterial,
   MeshPhongMaterial,
+  MeshStandardMaterial,
   MeshToonMaterial,
   NearestFilter,
   PerspectiveCamera,
@@ -62,15 +63,17 @@ scene.add(ambientLight, pointLight);
 // The lambert material reacts to light.
 // const material = new MeshLambertMaterial();
 // const material = new MeshPhongMaterial({ shininess: 100, specular: "#1188ff" });
-textures.gradient.colors3.magFilter = NearestFilter;
-textures.gradient.colors3.minFilter = NearestFilter;
-textures.gradient.colors3.generateMipmaps = false;
-textures.gradient.colors5.magFilter = NearestFilter;
-textures.gradient.colors5.minFilter = NearestFilter;
-textures.gradient.colors5.generateMipmaps = false;
-const material = new MeshToonMaterial({
-  gradientMap: textures.gradient.colors3,
-});
+// textures.gradient.colors3.magFilter = NearestFilter;
+// textures.gradient.colors3.minFilter = NearestFilter;
+// textures.gradient.colors3.generateMipmaps = false;
+// textures.gradient.colors5.magFilter = NearestFilter;
+// textures.gradient.colors5.minFilter = NearestFilter;
+// textures.gradient.colors5.generateMipmaps = false;
+// const material = new MeshToonMaterial({
+//   gradientMap: textures.gradient.colors3,
+// });
+
+const material = new MeshStandardMaterial();
 
 const sphere = new Mesh(new SphereGeometry(0.5, 16, 16), material);
 sphere.position.setX(-1.5);
