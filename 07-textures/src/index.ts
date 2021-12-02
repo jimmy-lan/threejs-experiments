@@ -8,6 +8,7 @@ import {
   Mesh,
   MeshBasicMaterial,
   PerspectiveCamera,
+  RepeatWrapping,
   Scene,
   TextureLoader,
   Vector2,
@@ -30,6 +31,11 @@ const ambientOcclusionTexture = textureLoader.load(
 );
 const metalnessTexture = textureLoader.load("assets/door/metalness.jpg");
 const roughnessTexture = textureLoader.load("assets/door/roughness.jpg");
+
+colorTexture.repeat.x = 2;
+colorTexture.repeat.y = 3;
+colorTexture.wrapS = RepeatWrapping;
+colorTexture.wrapT = RepeatWrapping;
 
 const size = new Size(window.innerWidth, window.innerHeight);
 const boxGeometry = new BoxGeometry(1, 1, 1);
