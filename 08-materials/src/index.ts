@@ -43,14 +43,20 @@ const textures = loadTextures();
 // Doc: https://threejs.org/docs/#api/en/materials/MeshNormalMaterial
 // const material = new MeshNormalMaterial({ flatShading: true });
 
+// The matcap material simulates light based on normal vectors on the object.
+// It does not react to light in the environment.
 // const material = new MeshMatcapMaterial({ matcap: textures.matcap.regular });
 
+// The depth material renders white for the part of object that is close to the camera
+// and renders black for the part of object that is far from the camera.
+// This can be useful to create effects like fogs.
 // const material = new MeshDepthMaterial();
 
 const ambientLight = new AmbientLight("#fff", 0.5);
 const pointLight = new PointLight("#fff", 0.5);
 pointLight.position.set(2, 3, 4);
 scene.add(ambientLight, pointLight);
+// The lambert material reacts to light.
 const material = new MeshLambertMaterial();
 
 const sphere = new Mesh(new SphereGeometry(0.5, 16, 16), material);
