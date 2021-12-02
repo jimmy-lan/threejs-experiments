@@ -35,5 +35,5 @@ export const loadTextures = () => {
     colors3: loadGradientTexture("3.jpg"),
     colors5: loadGradientTexture("5.jpg"),
   };
-  return { door, matcap };
+  return { door, matcap, gradient };
 };
