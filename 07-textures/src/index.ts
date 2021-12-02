@@ -22,6 +22,14 @@ const RENDER_CANVAS_SELECTOR = "canvas.root";
 const loadingManager = new LoadingManager();
 const textureLoader = new TextureLoader(loadingManager);
 const colorTexture = textureLoader.load("assets/door/color.jpg");
+const alphaTexture = textureLoader.load("assets/door/alpha.jpg");
+const heightTexture = textureLoader.load("assets/door/height.jpg");
+const normalTexture = textureLoader.load("assets/door/normal.jpg");
+const ambientOcclusionTexture = textureLoader.load(
+  "assets/door/ambientOcclusion.jpg"
+);
+const metalnessTexture = textureLoader.load("assets/door/metalness.jpg");
+const roughnessTexture = textureLoader.load("assets/door/roughness.jpg");
 
 const size = new Size(window.innerWidth, window.innerHeight);
 const boxGeometry = new BoxGeometry(1, 1, 1);
