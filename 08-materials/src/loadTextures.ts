@@ -10,6 +10,10 @@ const loadDoorTexture = (filename: string) => {
   return loadTexture("door", filename);
 };
 
+const loadMatcapTexture = (filename: string) => {
+  return loadTexture("matcap", filename);
+};
+
 export const loadTextures = () => {
   const door = {
     color: loadDoorTexture("color.jpg"),
