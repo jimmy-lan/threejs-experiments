@@ -14,6 +14,10 @@ const loadMatcapTexture = (filename: string) => {
   return loadTexture("matcaps", filename);
 };
 
+const loadGradientTexture = (filename: string) => {
+  return loadTexture("gradients", filename);
+};
+
 export const loadTextures = () => {
   const door = {
     color: loadDoorTexture("color.jpg"),
@@ -26,7 +30,10 @@ export const loadTextures = () => {
   };
   const matcap = {
     regular: loadMatcapTexture("1.png"),
-    gradient: loadMatcapTexture("3.jpg"),
+  };
+  const gradient = {
+    colors3: loadGradientTexture("3.jpg"),
+    colors5: loadGradientTexture("5.jpg"),
   };
   return { door, matcap };
 };
