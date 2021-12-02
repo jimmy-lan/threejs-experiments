@@ -8,6 +8,7 @@ import {
   MeshLambertMaterial,
   MeshMatcapMaterial,
   MeshNormalMaterial,
+  MeshPhongMaterial,
   PerspectiveCamera,
   PlaneGeometry,
   PointLight,
@@ -57,7 +58,8 @@ const pointLight = new PointLight("#fff", 0.5);
 pointLight.position.set(2, 3, 4);
 scene.add(ambientLight, pointLight);
 // The lambert material reacts to light.
-const material = new MeshLambertMaterial();
+// const material = new MeshLambertMaterial();
+const material = new MeshPhongMaterial();
 
 const sphere = new Mesh(new SphereGeometry(0.5, 16, 16), material);
 sphere.position.setX(-1.5);
