@@ -32,6 +32,7 @@ const size = new Size(window.innerWidth, window.innerHeight);
 const camera = new PerspectiveCamera(50, size.aspect);
 camera.position.z = 3;
 const scene = new Scene();
+const gui = new GUI();
 
 const textures = loadTextures();
 // Mesh basic material
@@ -88,8 +89,6 @@ scene.add(camera, sphere, plane, torus);
 const canvas = document.querySelector(RENDER_CANVAS_SELECTOR);
 const controls = new OrbitControls(camera, canvas as HTMLElement);
 controls.enableDamping = true;
-
-const gui = new GUI();
 
 const renderer = new WebGLRenderer({ canvas });
 renderer.setSize(size.width, size.height);
