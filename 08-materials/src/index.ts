@@ -1,4 +1,5 @@
 import {
+  Clock,
   Mesh,
   MeshBasicMaterial,
   PerspectiveCamera,
@@ -50,7 +51,18 @@ window.addEventListener("resize", () => {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 3));
 });
 
+const clock = new Clock();
 const renderFrame = () => {
+  const elapsedTime = clock.getElapsedTime();
+
+  sphere.rotation.y = 0.1 * elapsedTime;
+  plane.rotation.y = 0.1 * elapsedTime;
+  torus.rotation.y = 0.1 * elapsedTime;
+
+  sphere.rotation.z = 0.15 * elapsedTime;
+  plane.rotation.z = 0.15 * elapsedTime;
+  torus.rotation.z = 0.15 * elapsedTime;
+
   controls.update();
   renderer.render(scene, camera);
   requestAnimationFrame(renderFrame);
