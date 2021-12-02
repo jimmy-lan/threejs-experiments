@@ -24,4 +24,8 @@ export const loadTextures = () => {
     metalness: loadDoorTexture("metalness.jpg"),
     roughness: loadDoorTexture("roughness.jpg"),
   };
+  const matcap = {
+    regular: loadMatcapTexture("1.png"),
+    gradient: loadMatcapTexture("3.jpg"),
+  };
 };
