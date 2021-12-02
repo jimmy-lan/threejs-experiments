@@ -28,4 +28,5 @@ export const loadTextures = () => {
     regular: loadMatcapTexture("1.png"),
     gradient: loadMatcapTexture("3.jpg"),
   };
+  return { door, matcap };
 };
