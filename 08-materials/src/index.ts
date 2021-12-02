@@ -9,6 +9,7 @@ import {
   MeshMatcapMaterial,
   MeshNormalMaterial,
   MeshPhongMaterial,
+  MeshToonMaterial,
   PerspectiveCamera,
   PlaneGeometry,
   PointLight,
@@ -59,7 +60,10 @@ pointLight.position.set(2, 3, 4);
 scene.add(ambientLight, pointLight);
 // The lambert material reacts to light.
 // const material = new MeshLambertMaterial();
-const material = new MeshPhongMaterial({ shininess: 100, specular: "#1188ff" });
+// const material = new MeshPhongMaterial({ shininess: 100, specular: "#1188ff" });
+const material = new MeshToonMaterial({
+  gradientMap: textures.matcap.gradient,
+});
 
 const sphere = new Mesh(new SphereGeometry(0.5, 16, 16), material);
 sphere.position.setX(-1.5);
