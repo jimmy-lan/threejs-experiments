@@ -62,7 +62,7 @@ scene.add(ambientLight, pointLight);
 // const material = new MeshLambertMaterial();
 // const material = new MeshPhongMaterial({ shininess: 100, specular: "#1188ff" });
 const material = new MeshToonMaterial({
-  gradientMap: textures.matcap.gradient,
+  gradientMap: textures.gradient.colors3,
 });
 
 const sphere = new Mesh(new SphereGeometry(0.5, 16, 16), material);
