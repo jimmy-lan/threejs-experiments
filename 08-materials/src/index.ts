@@ -3,6 +3,7 @@ import {
   DoubleSide,
   Mesh,
   MeshBasicMaterial,
+  MeshNormalMaterial,
   PerspectiveCamera,
   PlaneGeometry,
   Scene,
@@ -23,14 +24,19 @@ camera.position.z = 3;
 const scene = new Scene();
 
 const textures = loadTextures();
-const material = new MeshBasicMaterial({
-  map: textures.door.color,
-  color: "cyan",
-  opacity: 0.5,
-  transparent: true,
-  alphaMap: textures.door.alpha,
-  side: DoubleSide,
-});
+// Mesh basic material
+// const material = new MeshBasicMaterial({
+//   map: textures.door.color,
+//   color: "cyan",
+//   opacity: 0.5,
+//   transparent: true,
+//   alphaMap: textures.door.alpha,
+//   side: DoubleSide,
+// });
+
+// Mesh normal material maps normals to colours.
+// Doc: https://threejs.org/docs/#api/en/materials/MeshNormalMaterial
+const material = new MeshNormalMaterial();
 
 const sphere = new Mesh(new SphereGeometry(0.5, 16, 16), material);
 sphere.position.setX(-1.5);
