@@ -40,6 +40,8 @@ colorTexture.wrapT = RepeatWrapping;
 colorTexture.offset.x = 0.5;
 colorTexture.offset.y = 0.5;
 
+colorTexture.center.x = 0.5;
+colorTexture.center.y = 0.5;
 colorTexture.rotation = 0.25 * Math.PI;
 
 const size = new Size(window.innerWidth, window.innerHeight);
