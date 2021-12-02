@@ -22,7 +22,9 @@ camera.position.z = 3;
 const scene = new Scene();
 
 const textures = loadTextures();
-const material = new MeshBasicMaterial();
+const material = new MeshBasicMaterial({
+  map: textures.door.color,
+});
 
 const sphere = new Mesh(new SphereGeometry(0.5, 16, 16), material);
 sphere.position.setX(-1.5);
