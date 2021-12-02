@@ -39,7 +39,7 @@ const textures = loadTextures();
 // Doc: https://threejs.org/docs/#api/en/materials/MeshNormalMaterial
 // const material = new MeshNormalMaterial({ flatShading: true });
 
-const material = new MeshMatcapMaterial();
+const material = new MeshMatcapMaterial({ matcap: textures.matcap.regular });
 
 const sphere = new Mesh(new SphereGeometry(0.5, 16, 16), material);
 sphere.position.setX(-1.5);
