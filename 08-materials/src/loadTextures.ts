@@ -2,8 +2,12 @@ import { TextureLoader } from "three";
 
 const textureLoader = new TextureLoader();
 
+const loadTexture = (folder: string, filename: string) => {
+  return textureLoader.load(`/assets/textures/${folder}/${filename}`);
+};
+
 const loadDoorTexture = (filename: string) => {
-  return textureLoader.load(`/assets/textures/door/${filename}`);
+  return loadTexture("door", filename);
 };
 
 export const loadTextures = () => {
