@@ -12,6 +12,7 @@ import {
 import "./style.css";
 import { Size } from "./Size";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { loadTextures } from "./loadTextures";
 
 const RENDER_CANVAS_SELECTOR = "canvas.root";
 
@@ -20,14 +21,13 @@ const camera = new PerspectiveCamera(50, size.aspect);
 camera.position.z = 3;
 const scene = new Scene();
 
+const textures = loadTextures();
 const material = new MeshBasicMaterial();
 
 const sphere = new Mesh(new SphereGeometry(0.5, 16, 16), material);
 sphere.position.setX(-1.5);
-
 const plane = new Mesh(new PlaneGeometry(1, 1), material);
 plane.position.setX(0);
-
 const torus = new Mesh(new TorusGeometry(0.3, 0.2, 16, 32), material);
 torus.position.setX(1.5);
 
