@@ -89,6 +89,10 @@ gui.add(material, "aoMapIntensity").min(0).max(5).step(0.01);
 
 const sphere = new Mesh(new SphereGeometry(0.5, 16, 16), material);
 sphere.position.setX(-1.5);
+sphere.geometry.setAttribute(
+  "uv2",
+  new BufferAttribute(sphere.geometry.attributes.uv.array, 2)
+);
 const plane = new Mesh(new PlaneGeometry(1, 1), material);
 plane.position.setX(0);
 plane.geometry.setAttribute(
@@ -97,6 +101,10 @@ plane.geometry.setAttribute(
 );
 const torus = new Mesh(new TorusGeometry(0.3, 0.2, 16, 32), material);
 torus.position.setX(1.5);
+torus.geometry.setAttribute(
+  "uv2",
+  new BufferAttribute(torus.geometry.attributes.uv.array, 2)
+);
 
 scene.add(camera, sphere, plane, torus);
 
