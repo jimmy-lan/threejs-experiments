@@ -1,5 +1,6 @@
 import {
   AmbientLight,
+  BufferAttribute,
   Clock,
   DoubleSide,
   Mesh,
@@ -75,14 +76,25 @@ scene.add(ambientLight, pointLight);
 //   gradientMap: textures.gradient.colors3,
 // });
 
-const material = new MeshStandardMaterial({ metalness: 0.45, roughness: 0.65 });
+const material = new MeshStandardMaterial({
+  metalness: 0.45,
+  roughness: 0.65,
+  map: textures.door.color,
+  aoMap: textures.door.ambientOcclusion,
+  aoMapIntensity: 1,
+});
 gui.add(material, "metalness").min(0).max(1).step(0.001);
 gui.add(material, "roughness").min(0).max(1).step(0.001);
+gui.add(material, "aoMapIntensity").min(0).max(5).step(0.01);
 
 const sphere = new Mesh(new SphereGeometry(0.5, 16, 16), material);
 sphere.position.setX(-1.5);
 const plane = new Mesh(new PlaneGeometry(1, 1), material);
 plane.position.setX(0);
+plane.geometry.setAttribute(
+  "uv2",
+  new BufferAttribute(plane.geometry.attributes.uv.array, 2)
+);
 const torus = new Mesh(new TorusGeometry(0.3, 0.2, 16, 32), material);
 torus.position.setX(1.5);
 
