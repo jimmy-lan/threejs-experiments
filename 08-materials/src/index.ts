@@ -84,6 +84,8 @@ const material = new MeshStandardMaterial({
   aoMapIntensity: 1,
   displacementMap: textures.door.height,
   displacementScale: 0.1,
+  metalnessMap: textures.door.metalness,
+  roughnessMap: textures.door.roughness,
 });
 gui.add(material, "metalness").min(0).max(1).step(0.001);
 gui.add(material, "roughness").min(0).max(1).step(0.001);
