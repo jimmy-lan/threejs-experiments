@@ -83,6 +83,7 @@ const material = new MeshStandardMaterial({
   aoMap: textures.door.ambientOcclusion,
   aoMapIntensity: 1,
   displacementMap: textures.door.height,
+  displacementScale: 0.1,
 });
 gui.add(material, "metalness").min(0).max(1).step(0.001);
 gui.add(material, "roughness").min(0).max(1).step(0.001);
