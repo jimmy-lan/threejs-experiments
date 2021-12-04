@@ -82,24 +82,25 @@ const material = new MeshStandardMaterial({
   map: textures.door.color,
   aoMap: textures.door.ambientOcclusion,
   aoMapIntensity: 1,
+  displacementMap: textures.door.height,
 });
 gui.add(material, "metalness").min(0).max(1).step(0.001);
 gui.add(material, "roughness").min(0).max(1).step(0.001);
 gui.add(material, "aoMapIntensity").min(0).max(5).step(0.01);
 
-const sphere = new Mesh(new SphereGeometry(0.5, 16, 16), material);
+const sphere = new Mesh(new SphereGeometry(0.5, 64, 64), material);
 sphere.position.setX(-1.5);
 sphere.geometry.setAttribute(
   "uv2",
   new BufferAttribute(sphere.geometry.attributes.uv.array, 2)
 );
-const plane = new Mesh(new PlaneGeometry(1, 1), material);
+const plane = new Mesh(new PlaneGeometry(1, 1, 100, 100), material);
 plane.position.setX(0);
 plane.geometry.setAttribute(
   "uv2",
   new BufferAttribute(plane.geometry.attributes.uv.array, 2)
 );
-const torus = new Mesh(new TorusGeometry(0.3, 0.2, 16, 32), material);
+const torus = new Mesh(new TorusGeometry(0.3, 0.2, 64, 128), material);
 torus.position.setX(1.5);
 torus.geometry.setAttribute(
   "uv2",
