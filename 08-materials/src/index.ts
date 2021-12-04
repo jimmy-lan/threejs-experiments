@@ -88,6 +88,7 @@ const material = new MeshStandardMaterial({
 gui.add(material, "metalness").min(0).max(1).step(0.001);
 gui.add(material, "roughness").min(0).max(1).step(0.001);
 gui.add(material, "aoMapIntensity").min(0).max(5).step(0.01);
+gui.add(material, "displacementScale").min(0).max(1).step(0.001);
 
 const sphere = new Mesh(new SphereGeometry(0.5, 64, 64), material);
 sphere.position.setX(-1.5);
