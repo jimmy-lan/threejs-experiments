@@ -77,8 +77,8 @@ scene.add(ambientLight, pointLight);
 // });
 
 const material = new MeshStandardMaterial({
-  metalness: 0.45,
-  roughness: 0.65,
+  metalness: 0,
+  roughness: 1,
   map: textures.door.color,
   aoMap: textures.door.ambientOcclusion,
   aoMapIntensity: 1,
