@@ -77,20 +77,25 @@ scene.add(ambientLight, pointLight);
 //   gradientMap: textures.gradient.colors3,
 // });
 
+// const material = new MeshStandardMaterial({
+//   metalness: 0,
+//   roughness: 1,
+//   map: textures.door.color,
+//   aoMap: textures.door.ambientOcclusion,
+//   aoMapIntensity: 1,
+//   displacementMap: textures.door.height,
+//   displacementScale: 0.1,
+//   metalnessMap: textures.door.metalness,
+//   roughnessMap: textures.door.roughness,
+//   normalMap: textures.door.normal,
+//   normalScale: new Vector2(0.5, 0.5),
+//   transparent: true,
+//   alphaMap: textures.door.alpha,
+// });
+
 const material = new MeshStandardMaterial({
-  metalness: 0,
-  roughness: 1,
-  map: textures.door.color,
-  aoMap: textures.door.ambientOcclusion,
-  aoMapIntensity: 1,
-  displacementMap: textures.door.height,
-  displacementScale: 0.1,
-  metalnessMap: textures.door.metalness,
-  roughnessMap: textures.door.roughness,
-  normalMap: textures.door.normal,
-  normalScale: new Vector2(0.5, 0.5),
-  transparent: true,
-  alphaMap: textures.door.alpha,
+  metalness: 0.7,
+  roughness: 0.2,
 });
 gui.add(material, "metalness").min(0).max(1).step(0.001);
 gui.add(material, "roughness").min(0).max(1).step(0.001);
