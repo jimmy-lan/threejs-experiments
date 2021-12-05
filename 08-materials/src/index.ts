@@ -27,6 +27,7 @@ import { Size } from "./Size";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { loadTextures } from "./loadTextures";
 import GUI from "lil-gui";
+import { loadEnvironmentTextures } from "./loadEnvironmentTextures";
 
 const RENDER_CANVAS_SELECTOR = "canvas.root";
 
@@ -37,6 +38,7 @@ const scene = new Scene();
 const gui = new GUI();
 
 const textures = loadTextures();
+const environmentMapTexture = loadEnvironmentTextures("0");
 // Mesh basic material
 // const material = new MeshBasicMaterial({
 //   map: textures.door.color,
