@@ -89,6 +89,8 @@ const material = new MeshStandardMaterial({
   roughnessMap: textures.door.roughness,
   normalMap: textures.door.normal,
   normalScale: new Vector2(0.5, 0.5),
+  transparent: true,
+  alphaMap: textures.door.alpha,
 });
 gui.add(material, "metalness").min(0).max(1).step(0.001);
 gui.add(material, "roughness").min(0).max(1).step(0.001);
