@@ -86,6 +86,7 @@ const material = new MeshStandardMaterial({
   displacementScale: 0.1,
   metalnessMap: textures.door.metalness,
   roughnessMap: textures.door.roughness,
+  normalMap: textures.door.normal,
 });
 gui.add(material, "metalness").min(0).max(1).step(0.001);
 gui.add(material, "roughness").min(0).max(1).step(0.001);
