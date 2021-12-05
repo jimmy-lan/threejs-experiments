@@ -19,6 +19,7 @@ import {
   Scene,
   SphereGeometry,
   TorusGeometry,
+  Vector2,
   WebGLRenderer,
 } from "three";
 import "./style.css";
@@ -87,6 +88,7 @@ const material = new MeshStandardMaterial({
   metalnessMap: textures.door.metalness,
   roughnessMap: textures.door.roughness,
   normalMap: textures.door.normal,
+  normalScale: new Vector2(0.5, 0.5),
 });
 gui.add(material, "metalness").min(0).max(1).step(0.001);
 gui.add(material, "roughness").min(0).max(1).step(0.001);
