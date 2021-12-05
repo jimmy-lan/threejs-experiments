@@ -98,6 +98,7 @@ scene.add(ambientLight, pointLight);
 const material = new MeshStandardMaterial({
   metalness: 0.7,
   roughness: 0.2,
+  envMap: environmentMapTexture,
 });
 gui.add(material, "metalness").min(0).max(1).step(0.001);
 gui.add(material, "roughness").min(0).max(1).step(0.001);
