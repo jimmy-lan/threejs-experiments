@@ -28,9 +28,6 @@ const size = {
 };
 
 const start = async () => {
-  const cube = new Mesh(new BoxGeometry(1, 1, 1), new MeshBasicMaterial());
-  scene.add(cube);
-
   const helvetikerFont = await loadFont(
     "/fonts/helvetiker_regular.typeface.json"
   );
