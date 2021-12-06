@@ -11,6 +11,7 @@ import {
   WebGLRenderer,
 } from "three";
 import { loadFont } from "./loadFont";
+import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
 
 /**
  * Base
@@ -28,8 +29,11 @@ const size = {
 const start = async () => {
   const cube = new Mesh(new BoxGeometry(1, 1, 1), new MeshBasicMaterial());
   scene.add(cube);
+
   const readexProFont = await loadFont("/fonts/readex-pro.json");
-  console.log(readexProFont);
+  const textGeometry = new TextGeometry("Hello Three.js", {
+    font: readexProFont,
+  });
 };
 
 window.addEventListener("resize", () => {
