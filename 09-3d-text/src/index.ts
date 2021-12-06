@@ -12,6 +12,7 @@ import {
 } from "three";
 import { loadFont } from "./loadFont";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
+import { FontLoader } from "three/examples/jsm/loaders/FontLoader";
 
 /**
  * Base
@@ -30,18 +31,23 @@ const start = async () => {
   const cube = new Mesh(new BoxGeometry(1, 1, 1), new MeshBasicMaterial());
   scene.add(cube);
 
-  const readexProFont = await loadFont("/fonts/readex-pro.json");
+  const helvetikerFont = await loadFont(
+    "/fonts/helvetiker_regular.typeface.json"
+  );
   const textGeometry = new TextGeometry("Hello Three.js", {
-    font: readexProFont,
+    font: helvetikerFont,
     size: 0.5,
     height: 0.2,
     curveSegments: 12,
     bevelEnabled: true,
-    bevelThickness: 10,
+    bevelThickness: 0.03,
     bevelSize: 0.02,
     bevelOffset: 0,
     bevelSegments: 5,
   });
+  const textMaterial = new MeshBasicMaterial();
+  const text = new Mesh(textGeometry, textMaterial);
+  scene.add(text);
 };
 
 window.addEventListener("resize", () => {
