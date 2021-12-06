@@ -20,10 +20,6 @@ const gui = new GUI();
 const canvas = document.querySelector("canvas.webgl");
 const scene = new Scene();
 const textureLoader = new TextureLoader();
-const fontLoader = new FontLoader();
-fontLoader.load("/fonts/readex-pro.json", () => {
-  console.log("loaded");
-});
 
 const cube = new Mesh(new BoxGeometry(1, 1, 1), new MeshBasicMaterial());
 scene.add(cube);
