@@ -45,7 +45,7 @@ const start = async () => {
     bevelOffset: 0,
     bevelSegments: 5,
   });
-  const textMaterial = new MeshBasicMaterial();
+  const textMaterial = new MeshBasicMaterial({ wireframe: true });
   const text = new Mesh(textGeometry, textMaterial);
   scene.add(text);
 };
