@@ -33,6 +33,14 @@ const start = async () => {
   const readexProFont = await loadFont("/fonts/readex-pro.json");
   const textGeometry = new TextGeometry("Hello Three.js", {
     font: readexProFont,
+    size: 0.5,
+    height: 0.2,
+    curveSegments: 12,
+    bevelEnabled: true,
+    bevelThickness: 10,
+    bevelSize: 0.02,
+    bevelOffset: 0,
+    bevelSegments: 5,
   });
 };
 
