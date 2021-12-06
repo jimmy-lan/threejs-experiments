@@ -1,8 +1,6 @@
 import "./style.css";
-import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import GUI from "lil-gui";
-import { FontLoader } from "three/examples/jsm/loaders/FontLoader";
 import {
   BoxGeometry,
   Mesh,
@@ -12,6 +10,7 @@ import {
   TextureLoader,
   WebGLRenderer,
 } from "three";
+import { loadFont } from "./loadFont";
 
 /**
  * Base
@@ -21,12 +20,16 @@ const canvas = document.querySelector("canvas.webgl");
 const scene = new Scene();
 const textureLoader = new TextureLoader();
 
-const cube = new Mesh(new BoxGeometry(1, 1, 1), new MeshBasicMaterial());
-scene.add(cube);
-
 const size = {
   width: window.innerWidth,
   height: window.innerHeight,
+};
+
+const start = async () => {
+  const cube = new Mesh(new BoxGeometry(1, 1, 1), new MeshBasicMaterial());
+  scene.add(cube);
+  const readexProFont = await loadFont("/fonts/readex-pro.json");
+  console.log(readexProFont);
 };
 
 window.addEventListener("resize", () => {
@@ -61,4 +64,5 @@ const tick = () => {
   window.requestAnimationFrame(tick);
 };
 
+start();
 tick();
