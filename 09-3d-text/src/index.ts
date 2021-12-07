@@ -3,9 +3,8 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import GUI from "lil-gui";
 import {
   AxesHelper,
-  BoxGeometry,
   Mesh,
-  MeshBasicMaterial,
+  MeshMatcapMaterial,
   PerspectiveCamera,
   Scene,
   TextureLoader,
@@ -13,7 +12,6 @@ import {
 } from "three";
 import { loadFont } from "./loadFont";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
-import { FontLoader } from "three/examples/jsm/loaders/FontLoader";
 
 /**
  * Base
@@ -32,6 +30,7 @@ const start = async () => {
   const helvetikerFont = await loadFont(
     "/fonts/helvetiker_regular.typeface.json"
   );
+  const matcapTexture = textureLoader.load("/textures/matcaps/1.png");
   const textGeometry = new TextGeometry("Hello Three.js", {
     font: helvetikerFont,
     size: 0.5,
@@ -45,7 +44,7 @@ const start = async () => {
   });
   textGeometry.computeBoundingBox();
   textGeometry.center();
-  const textMaterial = new MeshBasicMaterial({ wireframe: true });
+  const textMaterial = new MeshMatcapMaterial({ matcap: matcapTexture });
   const text = new Mesh(textGeometry, textMaterial);
   scene.add(text);
   scene.add(new AxesHelper());
