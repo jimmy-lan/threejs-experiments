@@ -17,7 +17,6 @@ import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
 /**
  * Base
  */
-const gui = new GUI();
 const canvas = document.querySelector("canvas.webgl");
 const scene = new Scene();
 const textureLoader = new TextureLoader();
