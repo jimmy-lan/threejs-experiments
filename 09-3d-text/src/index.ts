@@ -50,6 +50,21 @@ const start = async () => {
   scene.add(text);
 
   const donutGeometry = new TorusGeometry(0.3, 0.2, 20, 45);
+  for (let _ = 0; _ < 100; _++) {
+    const donut = new Mesh(donutGeometry, matcapMaterial);
+
+    donut.position.x = (Math.random() - 0.5) * 10;
+    donut.position.y = (Math.random() - 0.5) * 10;
+    donut.position.z = (Math.random() - 0.5) * 10;
+
+    donut.rotation.x = Math.random() * Math.PI;
+    donut.rotation.y = Math.random() * Math.PI;
+
+    const donutScale = Math.random();
+    donut.scale.set(donutScale, donutScale, donutScale);
+
+    scene.add(donut);
+  }
 };
 
 window.addEventListener("resize", () => {
