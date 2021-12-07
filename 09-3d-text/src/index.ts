@@ -8,6 +8,7 @@ import {
   PerspectiveCamera,
   Scene,
   TextureLoader,
+  TorusGeometry,
   WebGLRenderer,
 } from "three";
 import { loadFont } from "./loadFont";
@@ -47,6 +48,8 @@ const start = async () => {
   const matcapMaterial = new MeshMatcapMaterial({ matcap: matcapTexture });
   const text = new Mesh(textGeometry, matcapMaterial);
   scene.add(text);
+
+  const donutGeometry = new TorusGeometry(0.3, 0.2, 20, 45);
 };
 
 window.addEventListener("resize", () => {
