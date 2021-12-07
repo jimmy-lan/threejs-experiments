@@ -32,7 +32,7 @@ const start = async () => {
     "/fonts/helvetiker_regular.typeface.json"
   );
   const matcapTexture = textureLoader.load("/textures/matcaps/1.png");
-  const textGeometry = new TextGeometry("Hello Three.js", {
+  const textGeometry = new TextGeometry("Orange Cat!", {
     font: helvetikerFont,
     size: 0.5,
     height: 0.2,
