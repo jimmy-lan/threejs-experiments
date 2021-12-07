@@ -36,7 +36,7 @@ const start = async () => {
     font: helvetikerFont,
     size: 0.5,
     height: 0.2,
-    curveSegments: 5,
+    curveSegments: 30,
     bevelEnabled: true,
     bevelThickness: 0.03,
     bevelSize: 0.02,
