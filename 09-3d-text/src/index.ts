@@ -44,11 +44,7 @@ const start = async () => {
     bevelSegments: 4,
   });
   textGeometry.computeBoundingBox();
-  textGeometry.translate(
-    -(textGeometry.boundingBox.max.x - textGeometry.boundingBox.min.x) * 0.5,
-    -(textGeometry.boundingBox.max.y - textGeometry.boundingBox.min.y) * 0.5,
-    -(textGeometry.boundingBox.max.z - textGeometry.boundingBox.min.z) * 0.5
-  );
+  textGeometry.center();
   const textMaterial = new MeshBasicMaterial({ wireframe: true });
   const text = new Mesh(textGeometry, textMaterial);
   scene.add(text);
