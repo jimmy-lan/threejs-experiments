@@ -44,10 +44,9 @@ const start = async () => {
   });
   textGeometry.computeBoundingBox();
   textGeometry.center();
-  const textMaterial = new MeshMatcapMaterial({ matcap: matcapTexture });
-  const text = new Mesh(textGeometry, textMaterial);
+  const matcapMaterial = new MeshMatcapMaterial({ matcap: matcapTexture });
+  const text = new Mesh(textGeometry, matcapMaterial);
   scene.add(text);
-  scene.add(new AxesHelper());
 };
 
 window.addEventListener("resize", () => {
