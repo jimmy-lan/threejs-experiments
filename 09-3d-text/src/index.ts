@@ -2,6 +2,7 @@ import "./style.css";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import GUI from "lil-gui";
 import {
+  AxesHelper,
   BoxGeometry,
   Mesh,
   MeshBasicMaterial,
@@ -42,9 +43,16 @@ const start = async () => {
     bevelOffset: 0,
     bevelSegments: 4,
   });
+  textGeometry.computeBoundingBox();
+  textGeometry.translate(
+    -(textGeometry.boundingBox.max.x - textGeometry.boundingBox.min.x) * 0.5,
+    -(textGeometry.boundingBox.max.y - textGeometry.boundingBox.min.y) * 0.5,
+    -(textGeometry.boundingBox.max.z - textGeometry.boundingBox.min.z) * 0.5
+  );
   const textMaterial = new MeshBasicMaterial({ wireframe: true });
   const text = new Mesh(textGeometry, textMaterial);
   scene.add(text);
+  scene.add(new AxesHelper());
 };
 
 window.addEventListener("resize", () => {
