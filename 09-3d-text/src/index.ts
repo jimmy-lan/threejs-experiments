@@ -35,12 +35,12 @@ const start = async () => {
     font: helvetikerFont,
     size: 0.5,
     height: 0.2,
-    curveSegments: 12,
+    curveSegments: 5,
     bevelEnabled: true,
     bevelThickness: 0.03,
     bevelSize: 0.02,
     bevelOffset: 0,
-    bevelSegments: 5,
+    bevelSegments: 4,
   });
   const textMaterial = new MeshBasicMaterial({ wireframe: true });
   const text = new Mesh(textGeometry, textMaterial);
