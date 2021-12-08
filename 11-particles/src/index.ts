@@ -5,7 +5,6 @@ import {
   Points,
   PointsMaterial,
   Scene,
-  SphereGeometry,
   WebGLRenderer,
 } from "three";
 import "./style.css";
