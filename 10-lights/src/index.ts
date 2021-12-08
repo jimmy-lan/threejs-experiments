@@ -47,6 +47,10 @@ gui
   .min(0)
   .max(1);
 
+const pointLight = new PointLight("#ff9000", 0.5, 10, 2);
+pointLight.position.set(1, -0.5, 1);
+scene.add(pointLight);
+
 const material = new MeshStandardMaterial();
 material.roughness = 0.4;
 
