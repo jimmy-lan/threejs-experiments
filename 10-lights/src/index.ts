@@ -1,35 +1,44 @@
-import "./style.css";
-import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import {
+  AmbientLight,
+  BoxGeometry,
+  Clock,
+  Mesh,
+  MeshStandardMaterial,
+  PerspectiveCamera,
+  PlaneGeometry,
+  PointLight,
+  Scene,
+  SphereGeometry,
+  TorusGeometry,
+  WebGLRenderer,
+} from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 const canvas = document.querySelector("canvas.webgl");
 
-const scene = new THREE.Scene();
+const scene = new Scene();
 
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+const ambientLight = new AmbientLight(0xffffff, 0.5);
 scene.add(ambientLight);
 
-const pointLight = new THREE.PointLight(0xffffff, 0.5);
+const pointLight = new PointLight(0xffffff, 0.5);
 pointLight.position.x = 2;
 pointLight.position.y = 3;
 pointLight.position.z = 4;
 scene.add(pointLight);
 
-const material = new THREE.MeshStandardMaterial();
+const material = new MeshStandardMaterial();
 material.roughness = 0.4;
 
-const sphere = new THREE.Mesh(new THREE.SphereGeometry(0.5, 32, 32), material);
+const sphere = new Mesh(new SphereGeometry(0.5, 32, 32), material);
 sphere.position.x = -1.5;
 
-const cube = new THREE.Mesh(new THREE.BoxGeometry(0.75, 0.75, 0.75), material);
+const cube = new Mesh(new BoxGeometry(0.75, 0.75, 0.75), material);
 
-const torus = new THREE.Mesh(
-  new THREE.TorusGeometry(0.3, 0.2, 32, 64),
-  material
-);
+const torus = new Mesh(new TorusGeometry(0.3, 0.2, 32, 64), material);
 torus.position.x = 1.5;
 
-const plane = new THREE.Mesh(new THREE.PlaneGeometry(5, 5), material);
+const plane = new Mesh(new PlaneGeometry(5, 5), material);
 plane.rotation.x = -Math.PI * 0.5;
 plane.position.y = -0.65;
 
@@ -51,27 +60,22 @@ window.addEventListener("resize", () => {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 });
 
-const camera = new THREE.PerspectiveCamera(
-  75,
-  sizes.width / sizes.height,
-  0.1,
-  100
-);
+const camera = new PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
 camera.position.x = 1;
 camera.position.y = 1;
 camera.position.z = 2;
 scene.add(camera);
 
-const controls = new OrbitControls(camera, canvas);
+const controls = new OrbitControls(camera, canvas as HTMLElement);
 controls.enableDamping = true;
 
-const renderer = new THREE.WebGLRenderer({
+const renderer = new WebGLRenderer({
   canvas: canvas,
 });
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-const clock = new THREE.Clock();
+const clock = new Clock();
 
 const tick = () => {
   const elapsedTime = clock.getElapsedTime();
