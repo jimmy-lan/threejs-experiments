@@ -1,4 +1,6 @@
 import {
+  BufferAttribute,
+  BufferGeometry,
   PerspectiveCamera,
   Points,
   PointsMaterial,
@@ -17,9 +19,15 @@ const camera = new PerspectiveCamera(50, size.aspect);
 camera.position.z = 3;
 const scene = new Scene();
 
-const particlesGeometry = new SphereGeometry(1, 32, 32);
+const numParticles = 1000;
+const positions = new Float32Array(numParticles * 3);
+for (let i = 0; i < positions.length; i++) {
+  positions[i] = (Math.random() - 0.5) * 10;
+}
+const particlesGeometry = new BufferGeometry();
+particlesGeometry.setAttribute("position", new BufferAttribute(positions, 3));
 const particlesMaterial = new PointsMaterial({
-  size: 0.02,
+  size: 0.03,
   sizeAttenuation: true,
 });
 const particles = new Points(particlesGeometry, particlesMaterial);
