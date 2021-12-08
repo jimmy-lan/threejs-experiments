@@ -5,6 +5,7 @@ import {
   BoxGeometry,
   Clock,
   DirectionalLight,
+  HemisphereLight,
   Mesh,
   MeshStandardMaterial,
   PerspectiveCamera,
@@ -37,6 +38,9 @@ gui
   .add(directionalLight, "intensity")
   .min(0)
   .max(1);
+
+const hemisphereLight = new HemisphereLight("#ff0000", "#0000ff", 0.5);
+scene.add(hemisphereLight);
 
 const material = new MeshStandardMaterial();
 material.roughness = 0.4;
