@@ -1,22 +1,7 @@
-import {
-  BufferAttribute,
-  Clock,
-  Mesh,
-  MeshStandardMaterial,
-  PerspectiveCamera,
-  PlaneGeometry,
-  PointLight,
-  Scene,
-  SphereGeometry,
-  TorusGeometry,
-  WebGLRenderer,
-} from "three";
+import { Clock, PerspectiveCamera, Scene, WebGLRenderer } from "three";
 import "./style.css";
 import { Size } from "./Size";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { loadTextures } from "./loadTextures";
-import GUI from "lil-gui";
-import { loadEnvironmentTextures } from "./loadEnvironmentTextures";
 
 const RENDER_CANVAS_SELECTOR = "canvas.root";
 
