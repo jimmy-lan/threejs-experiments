@@ -34,6 +34,7 @@ const particlesMaterial = new PointsMaterial({
   sizeAttenuation: true,
   transparent: true,
   alphaMap: particleTexture,
+  depthWrite: false,
   color: "#ff88cc",
 });
 const particles = new Points(particlesGeometry, particlesMaterial);
