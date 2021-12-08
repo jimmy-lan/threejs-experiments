@@ -34,6 +34,7 @@ gui
   .max(1);
 
 const directionalLight = new DirectionalLight("#fff", 0.5);
+directionalLight.position.set(1, 0.25, 0);
 scene.add(directionalLight);
 gui
   .add(directionalLight, "intensity")
