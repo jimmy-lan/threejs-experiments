@@ -1,4 +1,10 @@
-import { Clock, PerspectiveCamera, Scene, WebGLRenderer } from "three";
+import {
+  Clock,
+  PerspectiveCamera,
+  RawShaderMaterial,
+  Scene,
+  WebGLRenderer,
+} from "three";
 import "./style.css";
 import { Size } from "./Size";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
@@ -13,6 +19,8 @@ const scene = new Scene();
 const canvas = document.querySelector(RENDER_CANVAS_SELECTOR);
 const controls = new OrbitControls(camera, canvas as HTMLElement);
 controls.enableDamping = true;
+
+const material = new RawShaderMaterial();
 
 const renderer = new WebGLRenderer({ canvas });
 renderer.setSize(size.width, size.height);
