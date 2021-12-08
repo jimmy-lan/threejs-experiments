@@ -59,6 +59,7 @@ pointLightGui.add(pointLight.position, "x").min(-10).max(10);
 pointLightGui.add(pointLight.position, "y").min(-10).max(10);
 pointLightGui.add(pointLight.position, "z").min(-10).max(10);
 
+// The rect area light will only work with mesh standard material and mesh physical material
 const rectAreaLight = new RectAreaLight("#4e00ff", 2, 1, 1);
 scene.add(rectAreaLight);
 
