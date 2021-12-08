@@ -32,7 +32,8 @@ particlesGeometry.setAttribute("position", new BufferAttribute(positions, 3));
 const particlesMaterial = new PointsMaterial({
   size: 0.1,
   sizeAttenuation: true,
-  map: particleTexture,
+  transparent: true,
+  alphaMap: particleTexture,
   color: "#ff88cc",
 });
 const particles = new Points(particlesGeometry, particlesMaterial);
