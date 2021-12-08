@@ -14,6 +14,7 @@ import {
   RectAreaLight,
   Scene,
   SphereGeometry,
+  SpotLight,
   TorusGeometry,
   Vector3,
   WebGLRenderer,
@@ -65,6 +66,13 @@ const rectAreaLight = new RectAreaLight("#4e00ff", 2, 1, 1);
 rectAreaLight.position.set(-1.5, 0, 1.5);
 rectAreaLight.lookAt(new Vector3());
 scene.add(rectAreaLight);
+
+const spotLight = new SpotLight("#78ff00", 0.5, 10, Math.PI * 0.1, 0.25, 1);
+spotLight.position.set(0, 2, 3);
+scene.add(spotLight);
+
+spotLight.target.position.x = -0.75;
+scene.add(spotLight.target);
 
 const material = new MeshStandardMaterial();
 material.roughness = 0.4;
