@@ -11,6 +11,7 @@ import {
   PerspectiveCamera,
   PlaneGeometry,
   PointLight,
+  RectAreaLight,
   Scene,
   SphereGeometry,
   TorusGeometry,
@@ -57,6 +58,9 @@ pointLightGui.add(pointLight, "decay").min(0).max(10);
 pointLightGui.add(pointLight.position, "x").min(-10).max(10);
 pointLightGui.add(pointLight.position, "y").min(-10).max(10);
 pointLightGui.add(pointLight.position, "z").min(-10).max(10);
+
+const rectAreaLight = new RectAreaLight("#4e00ff", 2, 1, 1);
+scene.add(rectAreaLight);
 
 const material = new MeshStandardMaterial();
 material.roughness = 0.4;
