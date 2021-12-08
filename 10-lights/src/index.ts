@@ -27,18 +27,14 @@ const size = new Size(window.innerWidth, window.innerHeight);
 
 const ambientLight = new AmbientLight("#fff", 0.5);
 scene.add(ambientLight);
-gui
-  .add(ambientLight, "intensity")
-  .name("Ambient light intensity")
-  .min(0)
-  .max(1);
+gui.addFolder("Ambient Light").add(ambientLight, "intensity").min(0).max(1);
 
 const directionalLight = new DirectionalLight("#fff", 0.5);
 directionalLight.position.set(1, 0.25, 0);
 scene.add(directionalLight);
 gui
+  .addFolder("Directional Light")
   .add(directionalLight, "intensity")
-  .name("Directional light intensity")
   .min(0)
   .max(1);
 
