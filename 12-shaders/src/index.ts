@@ -1,5 +1,6 @@
 import {
   Clock,
+  Mesh,
   PerspectiveCamera,
   PlaneGeometry,
   RawShaderMaterial,
@@ -41,6 +42,8 @@ const material = new RawShaderMaterial({
     gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
   `,
 });
+const mesh = new Mesh(geometry, material);
+scene.add(mesh);
 
 const renderer = new WebGLRenderer({ canvas });
 renderer.setSize(size.width, size.height);
