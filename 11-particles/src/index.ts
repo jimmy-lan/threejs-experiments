@@ -1,5 +1,6 @@
 import {
   PerspectiveCamera,
+  Points,
   PointsMaterial,
   Scene,
   SphereGeometry,
@@ -21,6 +22,8 @@ const particlesMaterial = new PointsMaterial({
   size: 0.02,
   sizeAttenuation: true,
 });
+const particles = new Points(particlesGeometry, particlesMaterial);
+scene.add(particles);
 
 const canvas = document.querySelector(RENDER_CANVAS_SELECTOR);
 const controls = new OrbitControls(camera, canvas as HTMLElement);
