@@ -1,3 +1,5 @@
+import "./style.css";
+
 import {
   AmbientLight,
   BoxGeometry,
@@ -13,10 +15,12 @@ import {
   WebGLRenderer,
 } from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { Size } from "./Size";
 
-const canvas = document.querySelector("canvas.webgl");
+const canvas = document.querySelector("canvas.root");
 
 const scene = new Scene();
+const size = new Size(window.innerWidth, window.innerHeight);
 
 const ambientLight = new AmbientLight(0xffffff, 0.5);
 scene.add(ambientLight);
@@ -44,23 +48,16 @@ plane.position.y = -0.65;
 
 scene.add(sphere, cube, torus, plane);
 
-const sizes = {
-  width: window.innerWidth,
-  height: window.innerHeight,
-};
-
 window.addEventListener("resize", () => {
-  sizes.width = window.innerWidth;
-  sizes.height = window.innerHeight;
-
-  camera.aspect = sizes.width / sizes.height;
+  size.width = window.innerWidth;
+  size.height = window.innerHeight;
+  camera.aspect = size.aspect;
   camera.updateProjectionMatrix();
-
-  renderer.setSize(sizes.width, sizes.height);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setSize(size.width, size.height);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 3));
 });
 
-const camera = new PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
+const camera = new PerspectiveCamera(75, size.aspect, 0.1, 100);
 camera.position.x = 1;
 camera.position.y = 1;
 camera.position.z = 2;
@@ -72,7 +69,7 @@ controls.enableDamping = true;
 const renderer = new WebGLRenderer({
   canvas: canvas,
 });
-renderer.setSize(sizes.width, sizes.height);
+renderer.setSize(size.width, size.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
 const clock = new Clock();
