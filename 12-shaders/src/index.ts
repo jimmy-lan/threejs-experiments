@@ -1,6 +1,7 @@
 import {
   Clock,
   PerspectiveCamera,
+  PlaneGeometry,
   RawShaderMaterial,
   Scene,
   WebGLRenderer,
@@ -20,6 +21,7 @@ const canvas = document.querySelector(RENDER_CANVAS_SELECTOR);
 const controls = new OrbitControls(camera, canvas as HTMLElement);
 controls.enableDamping = true;
 
+const geometry = new PlaneGeometry(1, 1, 16, 16);
 const material = new RawShaderMaterial({
   vertexShader: `
     uniform mat4 projectionMatrix;
