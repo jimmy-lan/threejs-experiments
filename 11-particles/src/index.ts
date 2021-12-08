@@ -2,6 +2,7 @@ import {
   AdditiveBlending,
   BufferAttribute,
   BufferGeometry,
+  Clock,
   PerspectiveCamera,
   Points,
   PointsMaterial,
@@ -62,6 +63,8 @@ window.addEventListener("resize", () => {
   renderer.setSize(size.width, size.height);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 3));
 });
+
+const clock = new Clock();
 
 const renderFrame = () => {
   controls.update();
