@@ -69,6 +69,8 @@ const clock = new Clock();
 const renderFrame = () => {
   const elapsedTime = clock.getElapsedTime();
 
+  particles.rotation.y = elapsedTime * 0.02;
+
   controls.update();
   renderer.render(scene, camera);
   requestAnimationFrame(renderFrame);
