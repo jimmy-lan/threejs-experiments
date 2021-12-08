@@ -67,6 +67,8 @@ window.addEventListener("resize", () => {
 const clock = new Clock();
 
 const renderFrame = () => {
+  const elapsedTime = clock.getElapsedTime();
+
   controls.update();
   renderer.render(scene, camera);
   requestAnimationFrame(renderFrame);
