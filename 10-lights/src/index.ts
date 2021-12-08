@@ -50,6 +50,13 @@ gui
 const pointLight = new PointLight("#ff9000", 0.5, 10, 2);
 pointLight.position.set(1, -0.5, 1);
 scene.add(pointLight);
+const pointLightGui = gui.addFolder("Point Light");
+pointLightGui.add(pointLight, "intensity").min(0).max(1);
+pointLightGui.add(pointLight, "distance").min(3).max(30);
+pointLightGui.add(pointLight, "decay").min(0).max(10);
+pointLightGui.add(pointLight.position, "x").min(-10).max(10);
+pointLightGui.add(pointLight.position, "y").min(-10).max(10);
+pointLightGui.add(pointLight.position, "z").min(-10).max(10);
 
 const material = new MeshStandardMaterial();
 material.roughness = 0.4;
