@@ -1,8 +1,6 @@
 import "./style.css";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-import GUI from "lil-gui";
 import {
-  AxesHelper,
   Mesh,
   MeshMatcapMaterial,
   PerspectiveCamera,
