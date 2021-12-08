@@ -41,6 +41,11 @@ gui
 
 const hemisphereLight = new HemisphereLight("#ff0000", "#0000ff", 0.5);
 scene.add(hemisphereLight);
+gui
+  .addFolder("Hemisphere Light")
+  .add(hemisphereLight, "intensity")
+  .min(0)
+  .max(1);
 
 const material = new MeshStandardMaterial();
 material.roughness = 0.4;
