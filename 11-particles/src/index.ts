@@ -1,4 +1,5 @@
 import {
+  AdditiveBlending,
   BufferAttribute,
   BufferGeometry,
   PerspectiveCamera,
@@ -21,7 +22,7 @@ const scene = new Scene();
 const textureLoader = new TextureLoader();
 const particleTexture = textureLoader.load("/assets/textures/particles/2.png");
 
-const numParticles = 1000;
+const numParticles = 500;
 const positions = new Float32Array(numParticles * 3);
 for (let i = 0; i < positions.length; i++) {
   positions[i] = (Math.random() - 0.5) * 10;
@@ -30,11 +31,12 @@ for (let i = 0; i < positions.length; i++) {
 const particlesGeometry = new BufferGeometry();
 particlesGeometry.setAttribute("position", new BufferAttribute(positions, 3));
 const particlesMaterial = new PointsMaterial({
-  size: 0.1,
+  size: 0.3,
   sizeAttenuation: true,
   transparent: true,
   alphaMap: particleTexture,
   depthWrite: false,
+  blending: AdditiveBlending,
   color: "#ff88cc",
 });
 const particles = new Points(particlesGeometry, particlesMaterial);
