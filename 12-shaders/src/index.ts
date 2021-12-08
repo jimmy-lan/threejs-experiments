@@ -20,7 +20,19 @@ const canvas = document.querySelector(RENDER_CANVAS_SELECTOR);
 const controls = new OrbitControls(camera, canvas as HTMLElement);
 controls.enableDamping = true;
 
-const material = new RawShaderMaterial();
+const material = new RawShaderMaterial({
+  vertexShader: `
+    uniform mat4 projectionMatrix;
+    uniform mat4 viewMatrix;
+    uniform mat4 modelMatrix;
+    
+    attribute vec3 position;
+    
+    void main {
+      gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(position, 1.0);
+    }
+  `,
+});
 
 const renderer = new WebGLRenderer({ canvas });
 renderer.setSize(size.width, size.height);
