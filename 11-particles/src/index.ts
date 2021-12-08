@@ -24,12 +24,15 @@ const particleTexture = textureLoader.load("/assets/textures/particles/2.png");
 
 const numParticles = 500;
 const positions = new Float32Array(numParticles * 3);
+const colors = new Float32Array(numParticles * 3);
 for (let i = 0; i < positions.length; i++) {
   positions[i] = (Math.random() - 0.5) * 10;
+  colors[i] = Math.random();
 }
 
 const particlesGeometry = new BufferGeometry();
 particlesGeometry.setAttribute("position", new BufferAttribute(positions, 3));
+particlesGeometry.setAttribute("color", new BufferAttribute(colors, 3));
 const particlesMaterial = new PointsMaterial({
   size: 0.3,
   sizeAttenuation: true,
@@ -37,7 +40,7 @@ const particlesMaterial = new PointsMaterial({
   alphaMap: particleTexture,
   depthWrite: false,
   blending: AdditiveBlending,
-  color: "#ff88cc",
+  vertexColors: true,
 });
 const particles = new Points(particlesGeometry, particlesMaterial);
 scene.add(particles);
