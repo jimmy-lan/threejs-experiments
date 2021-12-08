@@ -15,6 +15,7 @@ import {
   Scene,
   SphereGeometry,
   TorusGeometry,
+  Vector3,
   WebGLRenderer,
 } from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
@@ -61,6 +62,8 @@ pointLightGui.add(pointLight.position, "z").min(-10).max(10);
 
 // The rect area light will only work with mesh standard material and mesh physical material
 const rectAreaLight = new RectAreaLight("#4e00ff", 2, 1, 1);
+rectAreaLight.position.set(-1.5, 0, 1.5);
+rectAreaLight.lookAt(new Vector3());
 scene.add(rectAreaLight);
 
 const material = new MeshStandardMaterial();
