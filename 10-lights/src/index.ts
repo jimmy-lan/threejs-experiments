@@ -4,6 +4,7 @@ import {
   AmbientLight,
   BoxGeometry,
   Clock,
+  DirectionalLight,
   Mesh,
   MeshStandardMaterial,
   PerspectiveCamera,
@@ -16,14 +17,29 @@ import {
 } from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { Size } from "./Size";
+import GUI from "lil-gui";
 
 const canvas = document.querySelector("canvas.root");
 
 const scene = new Scene();
+const gui = new GUI();
 const size = new Size(window.innerWidth, window.innerHeight);
 
 const ambientLight = new AmbientLight("#fff", 0.5);
 scene.add(ambientLight);
+gui
+  .add(ambientLight, "intensity")
+  .name("Ambient light intensity")
+  .min(0)
+  .max(1);
+
+const directionalLight = new DirectionalLight("#fff", 0.5);
+scene.add(directionalLight);
+gui
+  .add(directionalLight, "intensity")
+  .name("Directional light intensity")
+  .min(0)
+  .max(1);
 
 const material = new MeshStandardMaterial();
 material.roughness = 0.4;
