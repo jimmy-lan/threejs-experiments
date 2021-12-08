@@ -22,14 +22,8 @@ const canvas = document.querySelector("canvas.root");
 const scene = new Scene();
 const size = new Size(window.innerWidth, window.innerHeight);
 
-const ambientLight = new AmbientLight(0xffffff, 0.5);
+const ambientLight = new AmbientLight("#fff", 0.5);
 scene.add(ambientLight);
-
-const pointLight = new PointLight(0xffffff, 0.5);
-pointLight.position.x = 2;
-pointLight.position.y = 3;
-pointLight.position.z = 4;
-scene.add(pointLight);
 
 const material = new MeshStandardMaterial();
 material.roughness = 0.4;
