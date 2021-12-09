@@ -9,6 +9,7 @@ import {
   PlaneGeometry,
   RawShaderMaterial,
   Scene,
+  TextureLoader,
   Vector2,
   WebGLRenderer,
 } from "three";
@@ -24,6 +25,8 @@ const size = new Size(window.innerWidth, window.innerHeight);
 const camera = new PerspectiveCamera(50, size.aspect);
 camera.position.z = 3;
 const scene = new Scene();
+const textureLoader = new TextureLoader();
+const flagTexture = textureLoader.load("assets/textures/flag-french.jpg");
 const gui = new GUI();
 
 const canvas = document.querySelector(RENDER_CANVAS_SELECTOR);
@@ -50,6 +53,9 @@ const material = new RawShaderMaterial({
     },
     uColor: {
       value: new Color("orange"),
+    },
+    uTexture: {
+      value: flagTexture,
     },
   },
 });
