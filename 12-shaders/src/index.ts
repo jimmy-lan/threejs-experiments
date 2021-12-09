@@ -1,5 +1,6 @@
 import "./style.css";
 import {
+  BufferAttribute,
   Clock,
   DoubleSide,
   Mesh,
@@ -26,6 +27,12 @@ const controls = new OrbitControls(camera, canvas as HTMLElement);
 controls.enableDamping = true;
 
 const geometry = new PlaneGeometry(1, 1, 16, 16);
+const count = geometry.attributes.position.count;
+const randoms = new Float32Array(count);
+for (let i = 0; i < count; i++) {
+  randoms[i] = Math.random();
+}
+geometry.setAttribute("aRandom", new BufferAttribute(randoms, 1));
 const material = new RawShaderMaterial({
   vertexShader: testVertexShader,
   fragmentShader: testFragmentShader,
