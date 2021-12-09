@@ -15,6 +15,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { Size } from "./Size";
 import testVertexShader from "./shaders/test/vertex.glsl";
 import testFragmentShader from "./shaders/test/fragment.glsl";
+import GUI from "lil-gui";
 
 const RENDER_CANVAS_SELECTOR = "canvas.root";
 
@@ -22,6 +23,7 @@ const size = new Size(window.innerWidth, window.innerHeight);
 const camera = new PerspectiveCamera(50, size.aspect);
 camera.position.z = 3;
 const scene = new Scene();
+const gui = new GUI();
 
 const canvas = document.querySelector(RENDER_CANVAS_SELECTOR);
 const controls = new OrbitControls(camera, canvas as HTMLElement);
