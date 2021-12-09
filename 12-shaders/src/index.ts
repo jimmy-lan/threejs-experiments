@@ -8,6 +8,7 @@ import {
   PlaneGeometry,
   RawShaderMaterial,
   Scene,
+  Vector2,
   WebGLRenderer,
 } from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
@@ -39,7 +40,7 @@ const material = new RawShaderMaterial({
   side: DoubleSide,
   uniforms: {
     uFrequency: {
-      value: 10,
+      value: new Vector2(10, 5),
     },
   },
 });
