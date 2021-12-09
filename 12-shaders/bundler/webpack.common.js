@@ -63,10 +63,7 @@ module.exports = {
       {
         test: /\.(glsl|vs|fs|vert|frag)$/,
         exclude: /node_modules/,
-        type: "asset/resource",
-        generator: {
-          filename: "assets/images/[hash][ext]",
-        },
+        use: ["raw-loader"],
       },
     ],
   },
