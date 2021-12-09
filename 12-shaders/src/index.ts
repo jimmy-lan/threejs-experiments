@@ -1,6 +1,7 @@
 import "./style.css";
 import {
   Clock,
+  DoubleSide,
   Mesh,
   PerspectiveCamera,
   PlaneGeometry,
@@ -28,6 +29,7 @@ const geometry = new PlaneGeometry(1, 1, 16, 16);
 const material = new RawShaderMaterial({
   vertexShader: testVertexShader,
   fragmentShader: testFragmentShader,
+  side: DoubleSide,
 });
 const mesh = new Mesh(geometry, material);
 scene.add(mesh);
