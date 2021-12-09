@@ -1,3 +1,4 @@
+import "./style.css";
 import {
   Clock,
   Mesh,
@@ -7,9 +8,10 @@ import {
   Scene,
   WebGLRenderer,
 } from "three";
-import "./style.css";
-import { Size } from "./Size";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { Size } from "./Size";
+import testVertexShader from "./shaders/test/vertex.glsl";
+import testFragmentShader from "./shaders/test/fragment.glsl";
 
 const RENDER_CANVAS_SELECTOR = "canvas.root";
 
@@ -24,16 +26,8 @@ controls.enableDamping = true;
 
 const geometry = new PlaneGeometry(1, 1, 16, 16);
 const material = new RawShaderMaterial({
-  vertexShader: `
-    
-  `,
-  fragmentShader: `
-    precision mediump float;
-    
-    void main() {
-      gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
-    }
-  `,
+  vertexShader: testVertexShader,
+  fragmentShader: testFragmentShader,
 });
 const mesh = new Mesh(geometry, material);
 scene.add(mesh);
