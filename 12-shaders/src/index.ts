@@ -44,6 +44,9 @@ const material = new RawShaderMaterial({
     uFrequency: {
       value: new Vector2(10, 5),
     },
+    uTime: {
+      value: 0,
+    },
   },
 });
 const mesh = new Mesh(geometry, material);
