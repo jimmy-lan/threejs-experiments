@@ -2,6 +2,7 @@ import "./style.css";
 import {
   BufferAttribute,
   Clock,
+  Color,
   DoubleSide,
   Mesh,
   PerspectiveCamera,
@@ -46,6 +47,9 @@ const material = new RawShaderMaterial({
     },
     uTime: {
       value: 0,
+    },
+    uColor: {
+      value: new Color("orange"),
     },
   },
 });
