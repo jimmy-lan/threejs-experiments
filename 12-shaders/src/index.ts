@@ -1,14 +1,13 @@
 import "./style.css";
 import {
-  BufferAttribute,
   Clock,
   Color,
   DoubleSide,
   Mesh,
   PerspectiveCamera,
   PlaneGeometry,
-  RawShaderMaterial,
   Scene,
+  ShaderMaterial,
   TextureLoader,
   Vector2,
   WebGLRenderer,
@@ -40,7 +39,7 @@ const geometry = new PlaneGeometry(1, 1, 16, 16);
 //   randoms[i] = Math.random();
 // }
 // geometry.setAttribute("aRandom", new BufferAttribute(randoms, 1));
-const material = new RawShaderMaterial({
+const material = new ShaderMaterial({
   vertexShader: testVertexShader,
   fragmentShader: testFragmentShader,
   side: DoubleSide,
