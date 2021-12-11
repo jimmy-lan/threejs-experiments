@@ -1,5 +1,4 @@
-import { renderer } from "./objects/renderer";
-import { scene } from "./objects/scene";
-import { camera } from "./objects/camera";
+import "./styles/main.css";
+import { start } from "./app";
 
-renderer.render(scene, camera);
+start();
