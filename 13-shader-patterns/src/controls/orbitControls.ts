@@ -4,5 +4,6 @@ import { getCanvas } from "../helpers";
 
 const canvas = getCanvas();
 const orbitControls = new OrbitControls(camera, canvas);
+orbitControls.enableDamping = true;
 
 export { orbitControls };
