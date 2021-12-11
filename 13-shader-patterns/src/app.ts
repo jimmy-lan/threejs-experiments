@@ -1,6 +1,4 @@
-import { renderer } from "./objects/renderer";
-import { scene } from "./objects/scene";
-import { camera } from "./objects/camera";
+import { renderer, scene, camera } from "./objects";
 
 export const start = () => {
   renderer.render(scene, camera);
