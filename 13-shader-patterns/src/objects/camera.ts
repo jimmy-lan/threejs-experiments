@@ -1,5 +1,5 @@
 import { PerspectiveCamera } from "three";
-import { getRenderSize } from "./helpers";
+import { getRenderSize } from "../helpers";
 
 const camera = new PerspectiveCamera(50, getRenderSize().aspect);
 camera.position.z = 3;

@@ -1,5 +1,5 @@
 import { WebGLRenderer } from "three";
-import { getRenderSize } from "./helpers";
+import { getRenderSize } from "../helpers";
 
 const renderer = new WebGLRenderer();
 const size = getRenderSize();
