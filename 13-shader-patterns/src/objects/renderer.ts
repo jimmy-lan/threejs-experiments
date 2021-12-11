@@ -1,7 +1,8 @@
 import { WebGLRenderer } from "three";
 import { getRenderSize } from "../helpers";
 
-const renderer = new WebGLRenderer();
+const canvas = document.querySelector("canvas.root");
+const renderer = new WebGLRenderer({ canvas });
 const size = getRenderSize();
 
 const configureRender = () => {
