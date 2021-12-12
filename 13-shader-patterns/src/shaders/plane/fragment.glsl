@@ -41,6 +41,11 @@ void main() {
   // float strength = step(1.1, xStrength + yStrength);
   // NOTE: float strength = xStrength * yStrength; would yield the same result.
 
+  // Pattern 12
+  float xStrength = step(0.4, mod(vUv.x, 0.1) * 10.0);
+  float yStrength = step(0.8, mod(vUv.y, 0.1) * 10.0);
+  float strength = step(1.1, xStrength + yStrength);
+
   gl_FragColor = vec4(strength, strength, strength, 1.0);  
 
 }
