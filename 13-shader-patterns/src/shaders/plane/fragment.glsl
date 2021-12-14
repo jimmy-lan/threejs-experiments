@@ -128,8 +128,8 @@ void main() {
 
   // Pattern 29
   vec2 lightUv = vec2(
-    vUv.x * 0.5 + 0.25,
-    vUv.y
+    vUv.x * 0.1 + 0.45,
+    vUv.y * 0.5 + 0.25
   );
   float strength = 0.015 / distance(lightUv, vec2(0.5));
 
