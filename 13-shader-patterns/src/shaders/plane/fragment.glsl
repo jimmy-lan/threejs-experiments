@@ -118,7 +118,10 @@ void main() {
   // NOTE: float strength = sqrt(pow(vUv.x, 2.0) + pow(vUv.y, 2.0)); would yield the same result.
 
   // Pattern 27
-  float strength = distance(vUv, vec2(0.3, 0.5));
+  // float strength = distance(vUv, vec2(0.3, 0.5));
+
+  // Pattern 27
+  float strength = 1.0 - distance(vUv, vec2(0.5));
 
   gl_FragColor = vec4(strength, strength, strength, 1.0);  
 
