@@ -1,3 +1,5 @@
+#define PI 3.1415926535897932
+
 varying vec2 vUv;
 
 float random(vec2 st) {
