@@ -56,6 +56,9 @@ void main() {
   // float yBar = step(0.8, mod(vUv.x + 0.02, 0.1) * 10.0) * step(0.4, mod(vUv.y, 0.1) * 10.0);
   // float strength = xBar + yBar;
 
+  // Pattern 15
+  float strength = abs(0.5 - vUv.x);
+
   gl_FragColor = vec4(strength, strength, strength, 1.0);  
 
 }
