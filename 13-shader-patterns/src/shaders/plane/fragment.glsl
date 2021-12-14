@@ -57,7 +57,12 @@ void main() {
   // float strength = xBar + yBar;
 
   // Pattern 15
-  float strength = abs(0.5 - vUv.x);
+  // float strength = abs(0.5 - vUv.x);
+
+  // Pattern 16
+  float xStrength = abs(0.5 - vUv.x);
+  float yStrength = abs(0.5 - vUv.y);
+  float strength = min(xStrength, yStrength);
 
   gl_FragColor = vec4(strength, strength, strength, 1.0);  
 
