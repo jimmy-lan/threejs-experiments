@@ -80,9 +80,12 @@ void main() {
   // float strength = step(0.25, max(xStrength, yStrength));
 
   // Pattern 20
-  float xStrength = abs(0.5 - vUv.x);
-  float yStrength = abs(0.5 - vUv.y);
-  float strength = step(0.42, max(xStrength, yStrength));
+  // float xStrength = abs(0.5 - vUv.x);
+  // float yStrength = abs(0.5 - vUv.y);
+  // float strength = step(0.42, max(xStrength, yStrength));
+
+  // Pattern 21
+  float strength = round(vUv.x * 10.0) / 10.0;
 
   gl_FragColor = vec4(strength, strength, strength, 1.0);  
 
