@@ -139,6 +139,6 @@ void main() {
   float strengthX = 0.015 / distance(lightX, center);
   vec2 lightY = vec2(vUv.x * 0.5 + 0.25, vUv.y * 0.1 + 0.45);
   float strengthY = 0.015 / distance(lightY, center);
-  float strength = lightX * lightY;
+  float strength = strengthX * strengthY;
   gl_FragColor = vec4(strength, strength, strength, 1.0);  
 }
