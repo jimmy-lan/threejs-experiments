@@ -1,5 +1,5 @@
 import { renderer, scene, camera, plane } from "./objects";
-import { orbitControls } from "./controls/orbitControls";
+import { orbitControls } from "./controls";
 
 const renderFrame = () => {
   orbitControls.update();
