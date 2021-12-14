@@ -134,11 +134,12 @@ void main() {
   // float strength = 0.015 / distance(lightUv, vec2(0.5));
 
   // Pattern 30
-  vec2 center = vec2(0.5);
-  vec2 lightX = vec2(vUv.x * 0.1 + 0.45, vUv.y * 0.5 + 0.25);
-  float strengthX = 0.015 / distance(lightX, center);
-  vec2 lightY = vec2(vUv.x * 0.5 + 0.25, vUv.y * 0.1 + 0.45);
-  float strengthY = 0.015 / distance(lightY, center);
-  float strength = strengthX * strengthY;
+  // vec2 center = vec2(0.5);
+  // vec2 lightX = vec2(vUv.x * 0.1 + 0.45, vUv.y * 0.5 + 0.25);
+  // float strengthX = 0.015 / distance(lightX, center);
+  // vec2 lightY = vec2(vUv.x * 0.5 + 0.25, vUv.y * 0.1 + 0.45);
+  // float strengthY = 0.015 / distance(lightY, center);
+  // float strength = strengthX * strengthY;
+
   gl_FragColor = vec4(strength, strength, strength, 1.0);  
 }
