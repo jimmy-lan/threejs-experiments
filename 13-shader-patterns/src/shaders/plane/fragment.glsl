@@ -278,7 +278,10 @@ void main() {
   // float strength = 1.0 - step(0.01, abs(distance(vUv, vec2(0.5)) - radius));
 
   // Pattern 45
-  float strength = cnoise(vUv * 10.0);
+  // float strength = cnoise(vUv * 10.0);
+
+  // Pattern 46
+  float strength = step(0.0, cnoise(vUv * 10.0));
 
   gl_FragColor = vec4(strength, strength, strength, 1.0);  
 }
