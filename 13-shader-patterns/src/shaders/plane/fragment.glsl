@@ -165,7 +165,7 @@ void main() {
 
   // Pattern 33
   vec2 center = vec2(0.5);
-  float strength = abs(distance(center, vUv));
+  float strength = abs(distance(center, vUv) - 0.25);
 
   gl_FragColor = vec4(strength, strength, strength, 1.0);  
 }
