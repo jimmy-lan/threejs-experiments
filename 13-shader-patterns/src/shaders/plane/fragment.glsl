@@ -172,8 +172,16 @@ void main() {
   // float strength = step(0.01, abs(distance(center, vUv) - 0.3));
 
   // Pattern 35
+  // vec2 center = vec2(0.5);
+  // float strength = 1.0 - step(0.01, abs(distance(center, vUv) - 0.3));
+
+  // Pattern 36
   vec2 center = vec2(0.5);
-  float strength = 1.0 - step(0.01, abs(distance(center, vUv) - 0.3));
+  vec2 waveUv = vec2(
+    vUv.x,
+    vUv.y + sin(vUv.x * 25.0) * 0.1
+  );
+  float strength = 1.0 - step(0.01, abs(distance(center, waveUv) - 0.3));
 
   gl_FragColor = vec4(strength, strength, strength, 1.0);  
 }
