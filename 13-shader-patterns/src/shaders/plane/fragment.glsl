@@ -18,7 +18,11 @@ vec2 rotate(vec2 uv, float rotation, vec2 mid) {
 //
 vec2 fade(vec2 t) {return t*t*t*(t*(t*6.0-15.0)+10.0);}
 
-float cnoise(vec2 P){
+vec4 permute(vec4 x) {
+    return mod(((x*34.0)+1.0)*x, 289.0);
+}
+
+float cnoise(vec2 P) {
   vec4 Pi = floor(P.xyxy) + vec4(0.0, 0.0, 1.0, 1.0);
   vec4 Pf = fract(P.xyxy) - vec4(0.0, 0.0, 1.0, 1.0);
   Pi = mod(Pi, 289.0); // To avoid truncation effects in permutation
@@ -274,7 +278,7 @@ void main() {
   // float strength = 1.0 - step(0.01, abs(distance(vUv, vec2(0.5)) - radius));
 
   // Pattern 45
-  float strength = vUv.x;
+  float strength = cnoise(vUv * 10.0);
 
   gl_FragColor = vec4(strength, strength, strength, 1.0);  
 }
