@@ -160,8 +160,8 @@ void main() {
   // float strength = strengthX * strengthY;
 
   // Pattern 32
-  vec2 center = vec2(0.5);
-  float strength = step(0.25, distance(center, vUv));
+  // vec2 center = vec2(0.5);
+  // float strength = step(0.25, distance(center, vUv));
 
   gl_FragColor = vec4(strength, strength, strength, 1.0);  
 }
