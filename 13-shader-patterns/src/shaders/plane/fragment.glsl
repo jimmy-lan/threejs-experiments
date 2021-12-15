@@ -293,7 +293,8 @@ void main() {
   // float strength = step(0.9, sin(cnoise(vUv * 10.0)* 20.0));
 
   // Pattern 50
-  float strength = step(0.9, sin(cnoise(vUv * 10.0)* 20.0));
+  float strength = step(0.9, sin(cnoise(vUv * 10.0) * 20.0));
+  stregth = clamp(strength, 0.0, 1.0);
 
   vec3 blackColor = vec3(0.0);
   vec3 uvColor = vec3(vUv, 1.0);
